@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-    
-
+using System.Windows.Media;
+using System.Windows;
+using GemBox.Document.Drawing;
 
 namespace ExpenseTracker
 {
@@ -30,29 +31,57 @@ namespace ExpenseTracker
         }
 
         private IncomeExpenseForm incomeExpenseForm;
+        public static int parentX, parentY;
         private void incomeBtn_Click(object sender, EventArgs e)
         {
-            if (incomeExpenseForm == null) // Check if already created
+            Form modalBackground = new Form();
+            using (IncomeExpenseForm modal = new IncomeExpenseForm())
             {
-                incomeExpenseForm = new IncomeExpenseForm();
-                incomeExpenseForm.FormClosed += IncomeExpenseForm_FormClosed; // Subscribe to FormClosed event
+                modalBackground.StartPosition = FormStartPosition.Manual;
+                modalBackground.FormBorderStyle = FormBorderStyle.None;
+                modalBackground.Opacity = .50d;
+                modalBackground.BackColor = System.Drawing.Color.Black;
+                modalBackground.Size = this.Size;
+                modalBackground.Location = this.Location;
+                modalBackground.ShowInTaskbar = true;
+                modalBackground.Show();
+                modal.Owner = modalBackground;
+
+                parentX = this.Location.X;
+                parentY = this.Location.Y;
+
+                modal.ShowDialog();
+                modalBackground.Dispose();
             }
-            incomeExpenseForm.Show(); // Show the form (modal by default in WPF)
         }
 
         private void expenseBtn_Click(object sender, EventArgs e)
         {
-            if (incomeExpenseForm == null) // Check if already created
+            Form modalBackground = new Form();
+            using (IncomeExpenseForm modal = new IncomeExpenseForm())
             {
-                incomeExpenseForm = new IncomeExpenseForm();
-                incomeExpenseForm.FormClosed += IncomeExpenseForm_FormClosed; // Subscribe to FormClosed event
+                modalBackground.StartPosition = FormStartPosition.Manual;
+                modalBackground.FormBorderStyle = FormBorderStyle.None;
+                modalBackground.Opacity = .50d;
+                modalBackground.BackColor = System.Drawing.Color.Black;
+                modalBackground.Size = this.Size;
+                modalBackground.Location = this.Location;
+                modalBackground.ShowInTaskbar = true;
+                modalBackground.Show();
+                modal.Owner = modalBackground;
+
+                parentX = this.Location.X;
+                parentY = this.Location.Y;
+
+                modal.ShowDialog();
+                modalBackground.Dispose();
             }
-            incomeExpenseForm.Show(); // Show the form (modal by default in WPF)
         }
 
         private void IncomeExpenseForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             incomeExpenseForm = null; // Reset the reference (optional)
         }
+       
     }
 }

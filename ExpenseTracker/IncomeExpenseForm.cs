@@ -49,5 +49,11 @@ namespace ExpenseTracker
         {
             Close();
         }
+
+        int i;
+        private void IncomeExpenseForm_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(MaterialForm.parentX + 250, MaterialForm.parentY + 70);
+        }
     }
 }
