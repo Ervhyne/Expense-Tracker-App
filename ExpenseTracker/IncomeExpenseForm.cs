@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ExpenseTracker
 {
     public partial class IncomeExpenseForm : Form
     {
+
         public IncomeExpenseForm()
         {
             InitializeComponent();
         }
 
         private Button clickedButton; // Store reference to clicked button
-
-        private void expenseBtn_MouseClick(object sender, MouseEventArgs e)
+        private void expenseBtn_Click(object sender, EventArgs e)
         {
             ChangeButtonColor(sender);
+
         }
 
         private void incomeBtn_Click(object sender, EventArgs e)
@@ -50,10 +53,17 @@ namespace ExpenseTracker
             Close();
         }
 
-        int i;
+        private SqlConnection connection;
         private void IncomeExpenseForm_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(MaterialForm.parentX + 250, MaterialForm.parentY + 70);
+
         }
+
+        private void expenseBtn_form_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
+

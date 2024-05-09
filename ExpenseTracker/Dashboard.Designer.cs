@@ -1,13 +1,13 @@
 ﻿namespace ExpenseTracker
 {
-    partial class MaterialForm
+    partial class Dashboard
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -31,27 +31,22 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.accountsBtn = new System.Windows.Forms.Button();
-            this.categoriesBtn = new System.Windows.Forms.Button();
-            this.reportsBtn = new System.Windows.Forms.Button();
-            this.transactionsBtn = new System.Windows.Forms.Button();
-            this.dashboardBtn = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.yearlyBtn = new System.Windows.Forms.Button();
+            this.monthlyBtn = new System.Windows.Forms.Button();
+            this.weeklyBtn = new System.Windows.Forms.Button();
+            this.dailyBtn = new System.Windows.Forms.Button();
             this.usersCbx = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ExpenseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.summaryPanel = new System.Windows.Forms.Panel();
+            this.transactionTbl = new System.Windows.Forms.DataGridView();
             this.expenseBtn = new System.Windows.Forms.Button();
             this.incomeBtn = new System.Windows.Forms.Button();
             this.balanceLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.sumItems_flowP = new System.Windows.Forms.FlowLayoutPanel();
             this.expenseMoneybl = new System.Windows.Forms.Label();
             this.incomeMoneyLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,208 +56,98 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateRightBtn = new System.Windows.Forms.PictureBox();
             this.dateLeftBtn = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).BeginInit();
             this.summaryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.panel1.Controls.Add(this.accountsBtn);
-            this.panel1.Controls.Add(this.categoriesBtn);
-            this.panel1.Controls.Add(this.reportsBtn);
-            this.panel1.Controls.Add(this.transactionsBtn);
-            this.panel1.Controls.Add(this.dashboardBtn);
-            this.panel1.Location = new System.Drawing.Point(-1, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 36);
-            this.panel1.TabIndex = 0;
-            // 
-            // accountsBtn
-            // 
-            this.accountsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.accountsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.accountsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.accountsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.accountsBtn.FlatAppearance.BorderSize = 0;
-            this.accountsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.accountsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.accountsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accountsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountsBtn.ForeColor = System.Drawing.Color.White;
-            this.accountsBtn.Location = new System.Drawing.Point(541, 2);
-            this.accountsBtn.Name = "accountsBtn";
-            this.accountsBtn.Size = new System.Drawing.Size(82, 32);
-            this.accountsBtn.TabIndex = 4;
-            this.accountsBtn.Text = "Accounts";
-            this.accountsBtn.UseVisualStyleBackColor = false;
-            // 
-            // categoriesBtn
-            // 
-            this.categoriesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.categoriesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.categoriesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.categoriesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.categoriesBtn.FlatAppearance.BorderSize = 0;
-            this.categoriesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.categoriesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.categoriesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categoriesBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriesBtn.ForeColor = System.Drawing.Color.White;
-            this.categoriesBtn.Location = new System.Drawing.Point(400, 2);
-            this.categoriesBtn.Name = "categoriesBtn";
-            this.categoriesBtn.Size = new System.Drawing.Size(95, 32);
-            this.categoriesBtn.TabIndex = 3;
-            this.categoriesBtn.Text = "Categories";
-            this.categoriesBtn.UseVisualStyleBackColor = false;
-            // 
-            // reportsBtn
-            // 
-            this.reportsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.reportsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.reportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reportsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.reportsBtn.FlatAppearance.BorderSize = 0;
-            this.reportsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.reportsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportsBtn.ForeColor = System.Drawing.Color.White;
-            this.reportsBtn.Location = new System.Drawing.Point(296, 2);
-            this.reportsBtn.Name = "reportsBtn";
-            this.reportsBtn.Size = new System.Drawing.Size(72, 32);
-            this.reportsBtn.TabIndex = 2;
-            this.reportsBtn.Text = "Reports";
-            this.reportsBtn.UseVisualStyleBackColor = false;
-            // 
-            // transactionsBtn
-            // 
-            this.transactionsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.transactionsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.transactionsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.transactionsBtn.FlatAppearance.BorderSize = 0;
-            this.transactionsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.transactionsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.transactionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transactionsBtn.ForeColor = System.Drawing.Color.White;
-            this.transactionsBtn.Location = new System.Drawing.Point(161, 2);
-            this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(104, 32);
-            this.transactionsBtn.TabIndex = 1;
-            this.transactionsBtn.Text = "Transactions";
-            this.transactionsBtn.UseVisualStyleBackColor = false;
-            // 
-            // dashboardBtn
-            // 
-            this.dashboardBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.dashboardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dashboardBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(163)))));
-            this.dashboardBtn.FlatAppearance.BorderSize = 0;
-            this.dashboardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.dashboardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(68)))), ((int)(((byte)(121)))));
-            this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dashboardBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.dashboardBtn.Location = new System.Drawing.Point(28, 2);
-            this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.Size = new System.Drawing.Size(97, 32);
-            this.dashboardBtn.TabIndex = 0;
-            this.dashboardBtn.Text = "Dashboard";
-            this.dashboardBtn.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.yearlyBtn);
+            this.panel3.Controls.Add(this.monthlyBtn);
+            this.panel3.Controls.Add(this.weeklyBtn);
+            this.panel3.Controls.Add(this.dailyBtn);
             this.panel3.Controls.Add(this.usersCbx);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.chart1);
+            this.panel3.Controls.Add(this.ExpenseChart);
             this.panel3.Controls.Add(this.summaryPanel);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.dateRightBtn);
             this.panel3.Controls.Add(this.dateLeftBtn);
             this.panel3.Controls.Add(this.dateLbl);
             this.panel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel3.Location = new System.Drawing.Point(0, 60);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(814, 443);
-            this.panel3.TabIndex = 1;
+            this.panel3.Size = new System.Drawing.Size(810, 440);
+            this.panel3.TabIndex = 2;
             // 
-            // button4
+            // yearlyBtn
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(722, 171);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 32);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Yearly";
-            this.button4.UseVisualStyleBackColor = false;
+            this.yearlyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.yearlyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.yearlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.yearlyBtn.FlatAppearance.BorderSize = 0;
+            this.yearlyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yearlyBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearlyBtn.Location = new System.Drawing.Point(718, 171);
+            this.yearlyBtn.Name = "yearlyBtn";
+            this.yearlyBtn.Size = new System.Drawing.Size(76, 32);
+            this.yearlyBtn.TabIndex = 18;
+            this.yearlyBtn.Text = "Yearly";
+            this.yearlyBtn.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // monthlyBtn
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(722, 133);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 32);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Monthly";
-            this.button3.UseVisualStyleBackColor = false;
+            this.monthlyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.monthlyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.monthlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.monthlyBtn.FlatAppearance.BorderSize = 0;
+            this.monthlyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.monthlyBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthlyBtn.Location = new System.Drawing.Point(718, 133);
+            this.monthlyBtn.Name = "monthlyBtn";
+            this.monthlyBtn.Size = new System.Drawing.Size(76, 32);
+            this.monthlyBtn.TabIndex = 17;
+            this.monthlyBtn.Text = "Monthly";
+            this.monthlyBtn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // weeklyBtn
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(722, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 32);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Weekly";
-            this.button2.UseVisualStyleBackColor = false;
+            this.weeklyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.weeklyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.weeklyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.weeklyBtn.FlatAppearance.BorderSize = 0;
+            this.weeklyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.weeklyBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weeklyBtn.Location = new System.Drawing.Point(718, 95);
+            this.weeklyBtn.Name = "weeklyBtn";
+            this.weeklyBtn.Size = new System.Drawing.Size(76, 32);
+            this.weeklyBtn.TabIndex = 16;
+            this.weeklyBtn.Text = "Weekly";
+            this.weeklyBtn.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // dailyBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(722, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 32);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Daily";
-            this.button1.UseVisualStyleBackColor = false;
+            this.dailyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dailyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.dailyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dailyBtn.FlatAppearance.BorderSize = 0;
+            this.dailyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dailyBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dailyBtn.Location = new System.Drawing.Point(718, 57);
+            this.dailyBtn.Name = "dailyBtn";
+            this.dailyBtn.Size = new System.Drawing.Size(76, 32);
+            this.dailyBtn.TabIndex = 15;
+            this.dailyBtn.Text = "Daily";
+            this.dailyBtn.UseVisualStyleBackColor = false;
             // 
             // usersCbx
             // 
@@ -275,7 +160,7 @@
             this.usersCbx.ForeColor = System.Drawing.Color.Black;
             this.usersCbx.FormattingEnabled = true;
             this.usersCbx.ItemHeight = 23;
-            this.usersCbx.Location = new System.Drawing.Point(701, 10);
+            this.usersCbx.Location = new System.Drawing.Point(697, 10);
             this.usersCbx.Name = "usersCbx";
             this.usersCbx.Size = new System.Drawing.Size(97, 31);
             this.usersCbx.TabIndex = 7;
@@ -285,25 +170,25 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(671, 10);
+            this.panel4.Location = new System.Drawing.Point(667, 10);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(31, 31);
             this.panel4.TabIndex = 6;
             // 
-            // chart1
+            // ExpenseChart
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ExpenseChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.chart1.BackColor = System.Drawing.Color.Transparent;
-            this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
-            this.chart1.BorderlineWidth = 0;
+            this.ExpenseChart.BackColor = System.Drawing.Color.Transparent;
+            this.ExpenseChart.BorderlineColor = System.Drawing.Color.Transparent;
+            this.ExpenseChart.BorderlineWidth = 0;
             chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
             chartArea1.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.None;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
             chartArea1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.ExpenseChart.ChartAreas.Add(chartArea1);
             legend1.Alignment = System.Drawing.StringAlignment.Center;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
@@ -313,39 +198,61 @@
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
             legend1.Name = "Legend1";
             legend1.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(270, 79);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.ExpenseChart.Legends.Add(legend1);
+            this.ExpenseChart.Location = new System.Drawing.Point(269, 79);
+            this.ExpenseChart.Name = "ExpenseChart";
+            this.ExpenseChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.Color = System.Drawing.SystemColors.ActiveBorder;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(490, 349);
-            this.chart1.TabIndex = 5;
-            this.chart1.Text = "chart1";
+            this.ExpenseChart.Series.Add(series1);
+            this.ExpenseChart.Size = new System.Drawing.Size(490, 346);
+            this.ExpenseChart.TabIndex = 5;
+            this.ExpenseChart.Text = "chart1";
             // 
             // summaryPanel
             // 
             this.summaryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.summaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.summaryPanel.Controls.Add(this.transactionTbl);
             this.summaryPanel.Controls.Add(this.expenseBtn);
             this.summaryPanel.Controls.Add(this.incomeBtn);
             this.summaryPanel.Controls.Add(this.balanceLbl);
             this.summaryPanel.Controls.Add(this.label6);
             this.summaryPanel.Controls.Add(this.panel2);
-            this.summaryPanel.Controls.Add(this.sumItems_flowP);
             this.summaryPanel.Controls.Add(this.expenseMoneybl);
             this.summaryPanel.Controls.Add(this.incomeMoneyLbl);
             this.summaryPanel.Controls.Add(this.label3);
             this.summaryPanel.Controls.Add(this.label2);
             this.summaryPanel.Location = new System.Drawing.Point(16, 104);
             this.summaryPanel.Name = "summaryPanel";
-            this.summaryPanel.Size = new System.Drawing.Size(248, 324);
+            this.summaryPanel.Size = new System.Drawing.Size(248, 321);
             this.summaryPanel.TabIndex = 4;
+            // 
+            // transactionTbl
+            // 
+            this.transactionTbl.AllowUserToResizeColumns = false;
+            this.transactionTbl.AllowUserToResizeRows = false;
+            this.transactionTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.transactionTbl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.transactionTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transactionTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.transactionTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transactionTbl.EnableHeadersVisualStyles = false;
+            this.transactionTbl.Location = new System.Drawing.Point(13, 46);
+            this.transactionTbl.Name = "transactionTbl";
+            this.transactionTbl.Size = new System.Drawing.Size(224, 195);
+            this.transactionTbl.TabIndex = 21;
             // 
             // expenseBtn
             // 
@@ -357,7 +264,7 @@
             this.expenseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.expenseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expenseBtn.Location = new System.Drawing.Point(127, 280);
+            this.expenseBtn.Location = new System.Drawing.Point(127, 277);
             this.expenseBtn.Name = "expenseBtn";
             this.expenseBtn.Size = new System.Drawing.Size(76, 32);
             this.expenseBtn.TabIndex = 14;
@@ -375,7 +282,7 @@
             this.incomeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.incomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.incomeBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeBtn.Location = new System.Drawing.Point(38, 280);
+            this.incomeBtn.Location = new System.Drawing.Point(38, 277);
             this.incomeBtn.Name = "incomeBtn";
             this.incomeBtn.Size = new System.Drawing.Size(76, 32);
             this.incomeBtn.TabIndex = 13;
@@ -388,7 +295,7 @@
             this.balanceLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.balanceLbl.BackColor = System.Drawing.Color.Transparent;
             this.balanceLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceLbl.Location = new System.Drawing.Point(87, 254);
+            this.balanceLbl.Location = new System.Drawing.Point(87, 251);
             this.balanceLbl.Name = "balanceLbl";
             this.balanceLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.balanceLbl.Size = new System.Drawing.Size(155, 20);
@@ -402,7 +309,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 254);
+            this.label6.Location = new System.Drawing.Point(7, 251);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 23);
             this.label6.TabIndex = 11;
@@ -412,20 +319,10 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(7, 249);
+            this.panel2.Location = new System.Drawing.Point(7, 246);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(235, 2);
             this.panel2.TabIndex = 10;
-            // 
-            // sumItems_flowP
-            // 
-            this.sumItems_flowP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.sumItems_flowP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.sumItems_flowP.Location = new System.Drawing.Point(11, 46);
-            this.sumItems_flowP.Name = "sumItems_flowP";
-            this.sumItems_flowP.Size = new System.Drawing.Size(224, 195);
-            this.sumItems_flowP.TabIndex = 9;
             // 
             // expenseMoneybl
             // 
@@ -531,25 +428,22 @@
             this.dateLeftBtn.TabIndex = 1;
             this.dateLeftBtn.TabStop = false;
             // 
-            // MaterialForm
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(810, 500);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Name = "MaterialForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
+            this.Name = "Dashboard";
+            this.Size = new System.Drawing.Size(810, 440);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).EndInit();
             this.summaryPanel.ResumeLayout(false);
             this.summaryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
@@ -559,36 +453,29 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button dashboardBtn;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button transactionsBtn;
-        private System.Windows.Forms.Button reportsBtn;
-        private System.Windows.Forms.Button accountsBtn;
-        private System.Windows.Forms.Button categoriesBtn;
-        private System.Windows.Forms.Label dateLbl;
-        private System.Windows.Forms.PictureBox dateLeftBtn;
-        private System.Windows.Forms.PictureBox dateRightBtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button yearlyBtn;
+        private System.Windows.Forms.Button monthlyBtn;
+        private System.Windows.Forms.Button weeklyBtn;
+        private System.Windows.Forms.Button dailyBtn;
+        private System.Windows.Forms.ComboBox usersCbx;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ExpenseChart;
         private System.Windows.Forms.Panel summaryPanel;
-        private System.Windows.Forms.Label incomeMoneyLbl;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label expenseMoneybl;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.FlowLayoutPanel sumItems_flowP;
+        private System.Windows.Forms.DataGridView transactionTbl;
         private System.Windows.Forms.Button expenseBtn;
         private System.Windows.Forms.Button incomeBtn;
         private System.Windows.Forms.Label balanceLbl;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox usersCbx;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label expenseMoneybl;
+        private System.Windows.Forms.Label incomeMoneyLbl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox dateRightBtn;
+        private System.Windows.Forms.PictureBox dateLeftBtn;
+        private System.Windows.Forms.Label dateLbl;
     }
 }
-
