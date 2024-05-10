@@ -34,8 +34,8 @@
             this.reportsBtn = new System.Windows.Forms.Button();
             this.transactionsBtn = new System.Windows.Forms.Button();
             this.dashboardBtn = new System.Windows.Forms.Button();
-            this.category1 = new ExpenseTracker.Category();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.category1 = new ExpenseTracker.Category();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -150,21 +150,21 @@
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.category1);
+            this.panel2.Location = new System.Drawing.Point(0, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(810, 440);
+            this.panel2.TabIndex = 3;
+            // 
             // category1
             // 
             this.category1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.category1.Location = new System.Drawing.Point(0, 0);
             this.category1.Name = "category1";
             this.category1.Size = new System.Drawing.Size(810, 440);
-            this.category1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.category1);
-            this.panel2.Location = new System.Drawing.Point(0, 59);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 440);
-            this.panel2.TabIndex = 3;
+            this.category1.TabIndex = 0;
             // 
             // MaterialForm
             // 
@@ -192,8 +192,8 @@
         private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button accountsBtn;
         private System.Windows.Forms.Button categoriesBtn;
-        private Category category1;
         private System.Windows.Forms.Panel panel2;
+        private Category category1;
     }
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 05:09 AM
+-- Generation Time: May 10, 2024 at 04:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,10 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `userName` varchar(255) NOT NULL,
+  `accountID` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`userName`, `accountID`) VALUES
+('Ervhyne', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
+  `categoryID` int(11) NOT NULL,
   `categoryName` varchar(255) NOT NULL,
   `transactionType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -36,9 +55,9 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`categoryName`, `transactionType`) VALUES
-('Meat', 'Expense'),
-('Travel', 'Expense');
+INSERT INTO `category` (`categoryID`, `categoryName`, `transactionType`) VALUES
+(9, 'Me', 'Income'),
+(10, 'erasd', 'Expense');
 
 -- --------------------------------------------------------
 
@@ -54,6 +73,38 @@ CREATE TABLE `transactions` (
   `date` date NOT NULL,
   `notes` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`accountID`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`categoryID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `accountID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

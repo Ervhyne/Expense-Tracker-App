@@ -53,17 +53,10 @@ namespace ExpenseTracker
             Close();
         }
 
-        private SqlConnection connection;
         private void IncomeExpenseForm_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void expenseBtn_form_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
 

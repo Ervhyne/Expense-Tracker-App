@@ -191,12 +191,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accounts.Designer.cs">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountsForm.Designer.cs">
+      <DependentUpon>AccountsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoryData.cs" />
     <Compile Include="CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +236,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Accounts.resx">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountsForm.resx">
+      <DependentUpon>AccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,9 +291,9 @@
     <None Include="Resources\right-arrow-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQL\expensetrackingdb.sql" />
     <Content Include="License-LGPL.txt" />
     <Content Include="Resources\delete.png" />
+    <Content Include="SQL\expensetrackingdb.sql" />
     <None Include="Resources\delete1.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿namespace ExpenseTracker
+﻿
+namespace ExpenseTracker
 {
     partial class Category
     {
@@ -29,14 +30,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.incomeTbl = new System.Windows.Forms.DataGridView();
+            this.categoryTbl_category = new System.Windows.Forms.DataGridView();
             this.expenseBtn_category = new System.Windows.Forms.Button();
             this.incomeBtn_category = new System.Windows.Forms.Button();
             this.addBtn_category = new System.Windows.Forms.Button();
             this.editBtn_category = new System.Windows.Forms.Button();
             this.deleteBtn_category = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.incomeTbl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryTbl_category)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,27 +54,49 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Categories";
             // 
-            // incomeTbl
+            // categoryTbl_category
             // 
-            this.incomeTbl.AllowUserToResizeColumns = false;
-            this.incomeTbl.AllowUserToResizeRows = false;
-            this.incomeTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.incomeTbl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.incomeTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.categoryTbl_category.AllowUserToResizeColumns = false;
+            this.categoryTbl_category.AllowUserToResizeRows = false;
+            this.categoryTbl_category.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.categoryTbl_category.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.categoryTbl_category.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.incomeTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.incomeTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.incomeTbl.EnableHeadersVisualStyles = false;
-            this.incomeTbl.Location = new System.Drawing.Point(29, 81);
-            this.incomeTbl.Name = "incomeTbl";
-            this.incomeTbl.Size = new System.Drawing.Size(753, 322);
-            this.incomeTbl.TabIndex = 22;
+            this.categoryTbl_category.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.categoryTbl_category.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoryTbl_category.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.categoryTbl_category.DefaultCellStyle = dataGridViewCellStyle2;
+            this.categoryTbl_category.EnableHeadersVisualStyles = false;
+            this.categoryTbl_category.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.categoryTbl_category.Location = new System.Drawing.Point(29, 81);
+            this.categoryTbl_category.MultiSelect = false;
+            this.categoryTbl_category.Name = "categoryTbl_category";
+            this.categoryTbl_category.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoryTbl_category.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.categoryTbl_category.RowHeadersVisible = false;
+            this.categoryTbl_category.Size = new System.Drawing.Size(753, 322);
+            this.categoryTbl_category.TabIndex = 22;
             // 
             // expenseBtn_category
             // 
@@ -168,11 +193,12 @@
             this.Controls.Add(this.addBtn_category);
             this.Controls.Add(this.incomeBtn_category);
             this.Controls.Add(this.expenseBtn_category);
-            this.Controls.Add(this.incomeTbl);
+            this.Controls.Add(this.categoryTbl_category);
             this.Controls.Add(this.label1);
             this.Name = "Category";
             this.Size = new System.Drawing.Size(810, 440);
-            ((System.ComponentModel.ISupportInitialize)(this.incomeTbl)).EndInit();
+            this.Load += new System.EventHandler(this.Category_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryTbl_category)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView incomeTbl;
+        private System.Windows.Forms.DataGridView categoryTbl_category;
         private System.Windows.Forms.Button expenseBtn_category;
         private System.Windows.Forms.Button incomeBtn_category;
         private System.Windows.Forms.Button addBtn_category;

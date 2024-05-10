@@ -118,3 +118,5 @@ C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\De
 C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\Debug\ExpenseTracker.Dashboard.resources
 C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\Debug\ExpenseTracker.Category.resources
 C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\Debug\ExpenseTracker.CategoryForm.resources
+C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\Debug\ExpenseTracker.Accounts.resources
+C:\Users\Ervhyne\Documents\VS PROJECTS\Expense-Tracker-App\ExpenseTracker\obj\Debug\ExpenseTracker.AccountsForm.resources

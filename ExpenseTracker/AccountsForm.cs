@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,11 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace ExpenseTracker
 {
-    public partial class CategoryForm : Form
+    public partial class AccountsForm : Form
     {
-        public CategoryForm()
+        public AccountsForm()
         {
             InitializeComponent();
         }
@@ -24,16 +24,13 @@ namespace ExpenseTracker
             Close();
         }
 
-        // Optional: Declare a custom event for successful save notification
-        public event EventHandler CategorySaved;
         private void saveBtn_Click(object sender, EventArgs e)
         {
             // Connection string (replace with your actual connection details)
             string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
 
             // Get values from UI elements
-            string category_name = nameTxtBox.Text;
-            string transactionType = transactionTypeCbx.SelectedItem.ToString();
+            string account_name = usernameTxtBox.Text;
 
             // Validate input (optional, add checks for empty or invalid values)
 
@@ -41,14 +38,13 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 // Write SQL insert statement
-                string sql = "INSERT INTO category (CategoryName, TransactionType) VALUES (@categoryName, @transactionType)";
+                string sql = "INSERT INTO account (UserName) VALUES (@userName)";
 
                 // Create a MySqlCommand object
                 using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
                     // Add parameters to prevent SQL injection attacks
-                    command.Parameters.AddWithValue("@categoryName", category_name);
-                    command.Parameters.AddWithValue("@transactionType", transactionType);
+                    command.Parameters.AddWithValue("@userName", account_name);
 
                     try
                     {
@@ -61,12 +57,7 @@ namespace ExpenseTracker
                         if (rowsAffected > 0)
                         {
                             // Transaction saved successfully, handle success logic here (e.g., clear form, update UI)
-                            nameTxtBox.Text = "";
-                            transactionTypeCbx.SelectedIndex = -1; // Select the first item (optional)
-
-                            // Trigger CategorySaved event (assuming CategoryForm has a reference to the Category control)
-                            CategorySaved?.Invoke(this, EventArgs.Empty);  // Assuming an event is declared in Category
-
+                            usernameTxtBox.Text = "";
 
                             // Close the form after successful save
                             Close();
