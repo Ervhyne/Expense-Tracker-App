@@ -272,6 +272,7 @@
     <None Include="Resources\right-arrow-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\expensetrackingdb.sql" />
     <Content Include="License-LGPL.txt" />
     <Content Include="Resources\delete.png" />
     <None Include="Resources\delete1.png" />

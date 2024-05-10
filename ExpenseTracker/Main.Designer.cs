@@ -34,9 +34,10 @@
             this.reportsBtn = new System.Windows.Forms.Button();
             this.transactionsBtn = new System.Windows.Forms.Button();
             this.dashboardBtn = new System.Windows.Forms.Button();
-            this.dashboard1 = new ExpenseTracker.Dashboard();
             this.category1 = new ExpenseTracker.Category();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -149,21 +150,21 @@
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.UseVisualStyleBackColor = false;
             // 
-            // dashboard1
-            // 
-            this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.dashboard1.Location = new System.Drawing.Point(0, 61);
-            this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(810, 440);
-            this.dashboard1.TabIndex = 1;
-            // 
             // category1
             // 
             this.category1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.category1.Location = new System.Drawing.Point(0, 61);
+            this.category1.Location = new System.Drawing.Point(0, 0);
             this.category1.Name = "category1";
             this.category1.Size = new System.Drawing.Size(810, 440);
             this.category1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.category1);
+            this.panel2.Location = new System.Drawing.Point(0, 59);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(810, 440);
+            this.panel2.TabIndex = 3;
             // 
             // MaterialForm
             // 
@@ -172,13 +173,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(810, 500);
-            this.Controls.Add(this.category1);
-            this.Controls.Add(this.dashboard1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "MaterialForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -191,8 +192,8 @@
         private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button accountsBtn;
         private System.Windows.Forms.Button categoriesBtn;
-        private Dashboard dashboard1;
         private Category category1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

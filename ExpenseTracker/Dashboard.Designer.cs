@@ -39,6 +39,7 @@
             this.dailyBtn = new System.Windows.Forms.Button();
             this.usersCbx = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ExpenseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.summaryPanel = new System.Windows.Forms.Panel();
             this.transactionTbl = new System.Windows.Forms.DataGridView();
@@ -52,16 +53,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateLbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateRightBtn = new System.Windows.Forms.PictureBox();
             this.dateLeftBtn = new System.Windows.Forms.PictureBox();
+            this.dateLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).BeginInit();
             this.summaryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
             this.SuspendLayout();
@@ -174,6 +174,19 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(31, 31);
             this.panel4.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // ExpenseChart
             // 
@@ -380,30 +393,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Summary";
             // 
-            // dateLbl
-            // 
-            this.dateLbl.AutoSize = true;
-            this.dateLbl.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLbl.ForeColor = System.Drawing.SystemColors.Control;
-            this.dateLbl.Location = new System.Drawing.Point(74, 16);
-            this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(135, 28);
-            this.dateLbl.TabIndex = 0;
-            this.dateLbl.Text = "Mon, 7 May";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // dateRightBtn
             // 
             this.dateRightBtn.BackColor = System.Drawing.Color.Transparent;
@@ -428,6 +417,17 @@
             this.dateLeftBtn.TabIndex = 1;
             this.dateLeftBtn.TabStop = false;
             // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLbl.ForeColor = System.Drawing.SystemColors.Control;
+            this.dateLbl.Location = new System.Drawing.Point(74, 16);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(135, 28);
+            this.dateLbl.TabIndex = 0;
+            this.dateLbl.Text = "Mon, 7 May";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,11 +440,11 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).EndInit();
             this.summaryPanel.ResumeLayout(false);
             this.summaryPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
             this.ResumeLayout(false);
