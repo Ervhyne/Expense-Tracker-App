@@ -1,52 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Data.SqlClient;
 
 namespace ExpenseTracker
 {
-    public class CategoryDataProvider
+    public class ExpenseData // Changed class name to ExpenseData for clarity
     {
-        private readonly string connectionString;
+        string connectionString = "server = 127.0.0.1; user = root; database = expensetrackingdb; password =";
 
-        public CategoryDataProvider(string connectionString)
+        public DataTable GetExpenseData(string filterType = "") // Added optional filterType parameter
         {
-            this.connectionString = connectionString;
-        }
-
-        public DataTable GetCategories()
-        {
-            DataTable table = new DataTable();
+            DataTable dataTable = new DataTable();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                string sql = "SELECT categoryName FROM category";
+                connection.Open();
 
-                try
+                string query = "";
+                if (filterType == "Expense")
                 {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sql, connection))
-                    {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(table);
-                        }
-                    }
+                    query = "SELECT categoryName FROM category WHERE transactionType = 'Expense'"; // Filter for Expense
                 }
-                catch (MySqlException ex)
+                else if (filterType == "Income")
                 {
-                    Console.WriteLine("Error loading categories: " + ex.Message);  // Replace with your desired error handling
+                    query = "SELECT categoryName FROM category WHERE transactionType = 'Income'"; // Filter for Income
+                }
+                else
+                {
+                    query = "SELECT categoryName FROM category"; // Show all if no filter
+                }
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
                 }
             }
 
-            return table;
+            return dataTable;
         }
     }
-    
 }

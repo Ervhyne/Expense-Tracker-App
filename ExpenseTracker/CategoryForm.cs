@@ -19,6 +19,7 @@ namespace ExpenseTracker
             InitializeComponent();
         }
 
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             Close();
@@ -28,6 +29,13 @@ namespace ExpenseTracker
         public event EventHandler CategorySaved;
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(nameTxtBox.Text) || transactionTypeCbx.SelectedIndex == -1)
+            {
+                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
+                warningTimer.Start();
+                return;
+            }
+
             // Connection string (replace with your actual connection details)
             string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
 
@@ -82,6 +90,30 @@ namespace ExpenseTracker
                         // Handle potential MySQL exceptions
                         Console.WriteLine("An error occurred: " + ex.Message);  // Replace with your desired error handling
                     }
+                }
+            }
+        }
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            warningLbl.ForeColor = Color.FromArgb(52, 52, 52);
+        }
+
+        public string NameText
+        {
+            get { return nameTxtBox.Text; }
+            set { nameTxtBox.Text = value; }
+        }
+
+        public string TransactionType
+        {
+            get { return transactionTypeCbx.SelectedItem?.ToString(); } // Handle null case
+            set
+            {
+                int index = transactionTypeCbx.FindStringExact(value);
+                if (index != -1) // Check if item exists
+                {
+                    transactionTypeCbx.SelectedIndex = index;
                 }
             }
         }

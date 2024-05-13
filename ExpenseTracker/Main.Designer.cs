@@ -35,7 +35,7 @@
             this.transactionsBtn = new System.Windows.Forms.Button();
             this.dashboardBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.category1 = new ExpenseTracker.Category();
+            this.accounts1 = new ExpenseTracker.Accounts();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +67,13 @@
             this.accountsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.accountsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountsBtn.ForeColor = System.Drawing.Color.White;
-            this.accountsBtn.Location = new System.Drawing.Point(541, 2);
+            this.accountsBtn.Location = new System.Drawing.Point(445, 2);
             this.accountsBtn.Name = "accountsBtn";
-            this.accountsBtn.Size = new System.Drawing.Size(82, 32);
+            this.accountsBtn.Size = new System.Drawing.Size(105, 32);
             this.accountsBtn.TabIndex = 4;
             this.accountsBtn.Text = "Accounts";
             this.accountsBtn.UseVisualStyleBackColor = false;
+            this.accountsBtn.Click += new System.EventHandler(this.accountsBtn_Click);
             // 
             // categoriesBtn
             // 
@@ -86,12 +87,13 @@
             this.categoriesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoriesBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriesBtn.ForeColor = System.Drawing.Color.White;
-            this.categoriesBtn.Location = new System.Drawing.Point(400, 2);
+            this.categoriesBtn.Location = new System.Drawing.Point(337, 2);
             this.categoriesBtn.Name = "categoriesBtn";
-            this.categoriesBtn.Size = new System.Drawing.Size(95, 32);
+            this.categoriesBtn.Size = new System.Drawing.Size(105, 32);
             this.categoriesBtn.TabIndex = 3;
             this.categoriesBtn.Text = "Categories";
             this.categoriesBtn.UseVisualStyleBackColor = false;
+            this.categoriesBtn.Click += new System.EventHandler(this.categoriesBtn_Click);
             // 
             // reportsBtn
             // 
@@ -105,12 +107,13 @@
             this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsBtn.ForeColor = System.Drawing.Color.White;
-            this.reportsBtn.Location = new System.Drawing.Point(296, 2);
+            this.reportsBtn.Location = new System.Drawing.Point(229, 2);
             this.reportsBtn.Name = "reportsBtn";
-            this.reportsBtn.Size = new System.Drawing.Size(72, 32);
+            this.reportsBtn.Size = new System.Drawing.Size(105, 32);
             this.reportsBtn.TabIndex = 2;
             this.reportsBtn.Text = "Reports";
             this.reportsBtn.UseVisualStyleBackColor = false;
+            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
             // transactionsBtn
             // 
@@ -124,12 +127,13 @@
             this.transactionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionsBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionsBtn.ForeColor = System.Drawing.Color.White;
-            this.transactionsBtn.Location = new System.Drawing.Point(161, 2);
+            this.transactionsBtn.Location = new System.Drawing.Point(121, 2);
             this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(104, 32);
+            this.transactionsBtn.Size = new System.Drawing.Size(105, 32);
             this.transactionsBtn.TabIndex = 1;
             this.transactionsBtn.Text = "Transactions";
             this.transactionsBtn.UseVisualStyleBackColor = false;
+            this.transactionsBtn.Click += new System.EventHandler(this.transactionsBtn_Click);
             // 
             // dashboardBtn
             // 
@@ -143,28 +147,29 @@
             this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dashboardBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.dashboardBtn.Location = new System.Drawing.Point(28, 2);
+            this.dashboardBtn.Location = new System.Drawing.Point(13, 2);
             this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.Size = new System.Drawing.Size(97, 32);
+            this.dashboardBtn.Size = new System.Drawing.Size(105, 32);
             this.dashboardBtn.TabIndex = 0;
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.UseVisualStyleBackColor = false;
+            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.category1);
+            this.panel2.Controls.Add(this.accounts1);
             this.panel2.Location = new System.Drawing.Point(0, 60);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(810, 440);
             this.panel2.TabIndex = 3;
             // 
-            // category1
+            // accounts1
             // 
-            this.category1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.category1.Location = new System.Drawing.Point(0, 0);
-            this.category1.Name = "category1";
-            this.category1.Size = new System.Drawing.Size(810, 440);
-            this.category1.TabIndex = 0;
+            this.accounts1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.accounts1.Location = new System.Drawing.Point(0, 0);
+            this.accounts1.Name = "accounts1";
+            this.accounts1.Size = new System.Drawing.Size(810, 440);
+            this.accounts1.TabIndex = 0;
             // 
             // MaterialForm
             // 
@@ -177,7 +182,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "MaterialForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MaterialForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -193,7 +198,7 @@
         private System.Windows.Forms.Button accountsBtn;
         private System.Windows.Forms.Button categoriesBtn;
         private System.Windows.Forms.Panel panel2;
-        private Category category1;
+        private Accounts accounts1;
     }
 }
 

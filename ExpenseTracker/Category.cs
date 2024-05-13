@@ -14,15 +14,33 @@ namespace ExpenseTracker
 {
     public partial class Category : UserControl
     {
+        string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
+
         public Category()
         {
             InitializeComponent();
-            if (categoryForm != null)  // Check if reference exists (optional)
+
+            expenseData = new ExpenseData(); // Create an instance on load
+            LoadData("Expense"); // Call LoadData with initial filter (Expense)
+        }
+    
+        private ExpenseData expenseData; // Instance of ExpenseData class
+        private void LoadData(string filterType = "")
+        {
+            DataTable dataTable = expenseData.GetExpenseData(filterType); // Get data with filter
+            categoryTbl_category.DataSource = dataTable; // Set DataGridView's DataSource
+        }
+
+        private string GetSelectedFilter()
+        {
+            if (incomeBtn_category.BackColor == ColorTranslator.FromHtml("#D0A6A6"))
             {
-                categoryForm.CategorySaved += OnCategoryFormSaved;  // Subscribe to event
+                return "Income";
             }
-            // Call RefreshData to initially populate the DataGridView
-            RefreshData();
+            else
+            {
+                return "Expense";
+            }
         }
 
         private CategoryForm categoryForm;
@@ -35,85 +53,85 @@ namespace ExpenseTracker
             }
 
             categoryForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
+            categoryForm.ShowInTaskbar = false;
             categoryForm.ShowDialog(); // Show the form as a modal dialog
+
+            string selectedFilter = GetSelectedFilter(); // Call helper function to get filter
+            LoadData(selectedFilter);
         }
 
+        private CategoryFormEdit categoryFormEdit;
         private void editBtn_category_Click(object sender, EventArgs e)
         {
-            if (categoryForm == null)
+            if (string.IsNullOrEmpty(getCategoryName))
             {
-                categoryForm = new CategoryForm();
-                categoryForm.FormClosed += CategoryForm_FormClosed; // Subscribe to FormClosed event
+                return;
             }
 
-            categoryForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
-            categoryForm.ShowDialog(); // Show the form as a modal dialog
+            // Open the edit form and pass the selected category name
+            using (CategoryFormEdit editForm = new CategoryFormEdit(getCategoryName))
+            {
+                editForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
+                editForm.ShowInTaskbar = false;
+
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Handle any post-edit actions if needed
+                    // For example, refresh the data grid view
+                    string selectedFilter = GetSelectedFilter();
+                    LoadData(selectedFilter);
+                }
+            }
+        }
+
+        private string getCategoryName = "";
+        private void categoryTbl_category_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = categoryTbl_category.Rows[e.RowIndex];
+                getCategoryName = row.Cells["categoryName"].Value.ToString();
+            }
         }
 
         private void deleteBtn_category_Click(object sender, EventArgs e)
         {
-            if (categoryTbl_category.SelectedRows.Count > 0)
+            if (string.IsNullOrEmpty(getCategoryName))
             {
-                DataGridViewRow selectedRow = categoryTbl_category.SelectedRows[0];
+                MessageBox.Show("Please select a category to delete.");
+                return;
+            }
 
-                // Confirmation dialog (optional)
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this category?", "Delete Confirmation", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string deleteData = "DELETE FROM category WHERE categoryName = @categoryName";
+
+                using (MySqlCommand command = new MySqlCommand(deleteData, connection))
                 {
-                    // Get category name from the selected row
-                    string categoryName = selectedRow.Cells["categoryName"].Value.ToString();  // Adjust as needed
-
-                    // Connect to database (assuming connection string is available)
-                    string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
-                    MySqlConnection connection = new MySqlConnection(connectionString);
-
-                    try
-                    {
-                        connection.Open();
-
-                        // Create and execute MySQL DELETE command (assuming category name is unique)
-                        string sql = "DELETE FROM category WHERE categoryName = @categoryName";
-                        MySqlCommand command = new MySqlCommand(sql, connection);
-                        command.Parameters.AddWithValue("@categoryName", categoryName);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            // Category deleted successfully
-                            RefreshData();  // Update DataGridView
-                            MessageBox.Show("Category deleted successfully!", "Success", MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            MessageBox.Show("An error occurred while deleting the category. No rows affected.", "Error", MessageBoxButtons.OK);
-                        }
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("An error occurred while deleting the category: " + ex.Message, "Error", MessageBoxButtons.OK);
-                    }
-                    finally
-                    {
-                        connection.Close();  // Ensure connection is closed
-                    }
+                    command.Parameters.AddWithValue("@categoryName", getCategoryName);
+                    command.ExecuteNonQuery();
                 }
+
+                connection.Close();
             }
-            else
-            {
-                MessageBox.Show("Please select a category to delete.", "No Selection", MessageBoxButtons.OK);
-            }
+
+            string selectedFilter = GetSelectedFilter(); // Call helper function to get filter
+            LoadData(selectedFilter);
         }
 
         private Button clickedButton; // Store reference to clicked button
         private void expenseBtn_category_Click(object sender, EventArgs e)
         {
             ChangeButtonColor(sender);
+            LoadData("Expense"); // Load data for expenses
         }
 
         private void incomeBtn_category_Click(object sender, EventArgs e)
         {
             ChangeButtonColor(sender);
+            LoadData("Income"); // Load data for income
         }
 
         // Helper function to handle color change and reset
@@ -135,26 +153,6 @@ namespace ExpenseTracker
         private void Category_Load(object sender, EventArgs e)
         {
             expenseBtn_category.PerformClick();
-
-            string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
-            CategoryDataProvider provider = new CategoryDataProvider(connectionString);
-
-            DataTable categories = provider.GetCategories();
-            categoryTbl_category.DataSource = categories;
-        }
-
-        public void RefreshData()
-        {
-            string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
-            CategoryDataProvider provider = new CategoryDataProvider(connectionString);
-
-            DataTable categories = provider.GetCategories();
-            categoryTbl_category.DataSource = categories;
-        }
-
-        private void OnCategoryFormSaved(object sender, EventArgs e)
-        {
-            RefreshData();  // Call RefreshData to update DataGridView on successful save
         }
     }
 }

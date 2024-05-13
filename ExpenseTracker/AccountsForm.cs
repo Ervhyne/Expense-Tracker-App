@@ -14,6 +14,8 @@ namespace ExpenseTracker
 {
     public partial class AccountsForm : Form
     {
+        string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
+
         public AccountsForm()
         {
             InitializeComponent();
@@ -26,8 +28,14 @@ namespace ExpenseTracker
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(usernameTxtBox.Text))
+            {
+                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
+                warningTimer.Start();
+                return;
+            }
             // Connection string (replace with your actual connection details)
-            string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
 
             // Get values from UI elements
             string account_name = usernameTxtBox.Text;
@@ -75,6 +83,11 @@ namespace ExpenseTracker
                     }
                 }
             }
+        }
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            warningLbl.ForeColor = Color.FromArgb(52, 52, 52);
         }
     }
 }

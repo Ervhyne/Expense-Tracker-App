@@ -56,6 +56,8 @@ namespace ExpenseTracker
             // 
             // categoryTbl_category
             // 
+            this.categoryTbl_category.AllowUserToAddRows = false;
+            this.categoryTbl_category.AllowUserToDeleteRows = false;
             this.categoryTbl_category.AllowUserToResizeColumns = false;
             this.categoryTbl_category.AllowUserToResizeRows = false;
             this.categoryTbl_category.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -77,7 +79,7 @@ namespace ExpenseTracker
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.categoryTbl_category.DefaultCellStyle = dataGridViewCellStyle2;
             this.categoryTbl_category.EnableHeadersVisualStyles = false;
@@ -97,6 +99,7 @@ namespace ExpenseTracker
             this.categoryTbl_category.RowHeadersVisible = false;
             this.categoryTbl_category.Size = new System.Drawing.Size(753, 322);
             this.categoryTbl_category.TabIndex = 22;
+            this.categoryTbl_category.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryTbl_category_CellClick);
             // 
             // expenseBtn_category
             // 

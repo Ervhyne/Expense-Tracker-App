@@ -12,10 +12,13 @@ namespace ExpenseTracker
 {
     public partial class Accounts : UserControl
     {
+
         public Accounts()
         {
             InitializeComponent();
         }
+
+        
 
         private AccountsForm accountsForm;
         private void addBtn_account_Click(object sender, EventArgs e)
