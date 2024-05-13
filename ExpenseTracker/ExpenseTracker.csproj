@@ -203,6 +203,12 @@
     <Compile Include="AccountsForm.Designer.cs">
       <DependentUpon>AccountsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AccountsFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountsFormEdit.Designer.cs">
+      <DependentUpon>AccountsFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AccountsForm.resx">
       <DependentUpon>AccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountsFormEdit.resx">
+      <DependentUpon>AccountsFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>

@@ -54,6 +54,7 @@
             this.deleteBtn_account.TabIndex = 31;
             this.deleteBtn_account.Text = "Delete";
             this.deleteBtn_account.UseVisualStyleBackColor = false;
+            this.deleteBtn_account.Click += new System.EventHandler(this.deleteBtn_account_Click);
             // 
             // editBtn_account
             // 
@@ -70,6 +71,7 @@
             this.editBtn_account.TabIndex = 30;
             this.editBtn_account.Text = "Edit";
             this.editBtn_account.UseVisualStyleBackColor = false;
+            this.editBtn_account.Click += new System.EventHandler(this.editBtn_account_Click);
             // 
             // addBtn_account
             // 
@@ -113,21 +115,25 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.userTbl_account.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.userTbl_account.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userTbl_account.ColumnHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.userTbl_account.DefaultCellStyle = dataGridViewCellStyle2;
+            this.userTbl_account.EnableHeadersVisualStyles = false;
             this.userTbl_account.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.userTbl_account.Location = new System.Drawing.Point(29, 81);
+            this.userTbl_account.MultiSelect = false;
             this.userTbl_account.Name = "userTbl_account";
             this.userTbl_account.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -141,6 +147,7 @@
             this.userTbl_account.RowHeadersVisible = false;
             this.userTbl_account.Size = new System.Drawing.Size(753, 322);
             this.userTbl_account.TabIndex = 32;
+            this.userTbl_account.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userTbl_account_CellClick);
             // 
             // Accounts
             // 
