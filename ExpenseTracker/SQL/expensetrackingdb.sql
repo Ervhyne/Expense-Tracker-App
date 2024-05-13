@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 04:47 PM
+-- Generation Time: May 13, 2024 at 04:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,7 +37,11 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`userName`, `accountID`) VALUES
-('Ervhyne', 1);
+('Ervhyne', 1),
+('Garvs', 2),
+('Emman', 3),
+('Kurt', 6),
+('Mein Kampf', 7);
 
 -- --------------------------------------------------------
 
@@ -56,8 +60,22 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`categoryID`, `categoryName`, `transactionType`) VALUES
-(9, 'Me', 'Income'),
-(10, 'erasd', 'Expense');
+(92, 'Income', 'Income'),
+(94, 'YETCOME', 'Income'),
+(103, '2', 'Expense'),
+(104, '3', 'Expense'),
+(107, 'MOMA', 'Income'),
+(108, 'POPA', 'Income'),
+(109, '4', 'Expense'),
+(111, 'FRIENDS', 'Income'),
+(112, 'PIGGY BANK', 'Income'),
+(113, '5', 'Expense'),
+(115, 'mother', 'Income'),
+(117, '6', 'Expense'),
+(119, '10', 'Income'),
+(120, 'a', 'Income'),
+(121, 'b', 'Income'),
+(124, '1', 'Expense');
 
 -- --------------------------------------------------------
 
@@ -98,13 +116,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accountID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `accountID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
