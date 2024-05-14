@@ -17,6 +17,7 @@ namespace ExpenseTracker
 {
     public partial class Dashboard : UserControl
     {
+
         public Dashboard()
         {
             InitializeComponent();
@@ -31,27 +32,26 @@ namespace ExpenseTracker
         public static int parentX, parentY;
         private void incomeBtn_Click(object sender, EventArgs e)
         {
-            if (incomeExpenseForm == null)
-            {
-                incomeExpenseForm = new IncomeExpenseForm();
-                incomeExpenseForm.FormClosed += IncomeExpenseForm_FormClosed; // Subscribe to FormClosed event
-            }
-
-            incomeExpenseForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
-            incomeExpenseForm.ShowDialog(); // Show the form as a modal dialog
+            OpenIncomeExpenseForm("Income");
         }
 
         private void expenseBtn_Click(object sender, EventArgs e)
         {
-            if (incomeExpenseForm == null)
+            OpenIncomeExpenseForm("Expense");
+        }
+
+        private void OpenIncomeExpenseForm(string buttonType)
+        {
+            if (incomeExpenseForm == null || incomeExpenseForm.IsDisposed)
             {
-                incomeExpenseForm = new IncomeExpenseForm();
-                incomeExpenseForm.FormClosed += IncomeExpenseForm_FormClosed; // Subscribe to FormClosed event
+                incomeExpenseForm = new IncomeExpenseForm(buttonType);
+                incomeExpenseForm.FormClosed += IncomeExpenseForm_FormClosed;
             }
 
-            incomeExpenseForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
-            incomeExpenseForm.ShowDialog(); // Show the form as a modal dialog
+            incomeExpenseForm.StartPosition = FormStartPosition.CenterScreen;
+            incomeExpenseForm.ShowDialog();
         }
+
 
         private void IncomeExpenseForm_FormClosed(object sender, FormClosedEventArgs e)
         {

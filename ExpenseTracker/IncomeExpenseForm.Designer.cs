@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.noteTxtArea = new System.Windows.Forms.RichTextBox();
@@ -54,6 +55,8 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.warningTimer = new System.Windows.Forms.Timer(this.components);
+            this.warningLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -68,6 +71,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
+            this.panel1.Controls.Add(this.warningLbl);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.panel8);
@@ -83,7 +87,7 @@
             this.panel1.Location = new System.Drawing.Point(11, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 378);
+            this.panel1.Size = new System.Drawing.Size(278, 411);
             this.panel1.TabIndex = 0;
             // 
             // panel9
@@ -92,17 +96,17 @@
             this.panel9.Controls.Add(this.noteTxtArea);
             this.panel9.Location = new System.Drawing.Point(8, 311);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(257, 58);
+            this.panel9.Size = new System.Drawing.Size(257, 70);
             this.panel9.TabIndex = 17;
             // 
             // noteTxtArea
             // 
-            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
             this.noteTxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.noteTxtArea.ForeColor = System.Drawing.SystemColors.Window;
             this.noteTxtArea.Location = new System.Drawing.Point(8, 8);
             this.noteTxtArea.Name = "noteTxtArea";
-            this.noteTxtArea.Size = new System.Drawing.Size(241, 42);
+            this.noteTxtArea.Size = new System.Drawing.Size(241, 54);
             this.noteTxtArea.TabIndex = 0;
             this.noteTxtArea.Text = "";
             // 
@@ -129,7 +133,7 @@
             // 
             // amountTxtField
             // 
-            this.amountTxtField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.amountTxtField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
             this.amountTxtField.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountTxtField.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountTxtField.ForeColor = System.Drawing.SystemColors.Window;
@@ -139,6 +143,9 @@
             this.amountTxtField.Size = new System.Drawing.Size(241, 19);
             this.amountTxtField.TabIndex = 0;
             this.amountTxtField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.amountTxtField.Enter += new System.EventHandler(this.AmountTxtField_Enter);
+            this.amountTxtField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountTxtField_KeyPress);
+            this.amountTxtField.Leave += new System.EventHandler(this.AmountTxtField_Leave);
             // 
             // panel7
             // 
@@ -185,6 +192,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
             this.panel6.Controls.Add(this.categoryCbx);
+            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(8, 156);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(257, 30);
@@ -197,13 +205,13 @@
             this.categoryCbx.Cursor = System.Windows.Forms.Cursors.Hand;
             this.categoryCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryCbx.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.categoryCbx.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryCbx.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryCbx.ForeColor = System.Drawing.Color.Black;
             this.categoryCbx.FormattingEnabled = true;
-            this.categoryCbx.ItemHeight = 15;
+            this.categoryCbx.ItemHeight = 16;
             this.categoryCbx.Location = new System.Drawing.Point(8, 3);
             this.categoryCbx.Name = "categoryCbx";
-            this.categoryCbx.Size = new System.Drawing.Size(241, 23);
+            this.categoryCbx.Size = new System.Drawing.Size(241, 24);
             this.categoryCbx.TabIndex = 10;
             // 
             // label4
@@ -236,13 +244,13 @@
             this.userCbx.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userCbx.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.userCbx.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userCbx.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userCbx.ForeColor = System.Drawing.Color.Black;
             this.userCbx.FormattingEnabled = true;
-            this.userCbx.ItemHeight = 14;
+            this.userCbx.ItemHeight = 15;
             this.userCbx.Location = new System.Drawing.Point(42, 3);
             this.userCbx.Name = "userCbx";
-            this.userCbx.Size = new System.Drawing.Size(207, 22);
+            this.userCbx.Size = new System.Drawing.Size(207, 23);
             this.userCbx.TabIndex = 10;
             // 
             // pictureBox1
@@ -306,11 +314,11 @@
             this.incomeBtn_form.Cursor = System.Windows.Forms.Cursors.Hand;
             this.incomeBtn_form.FlatAppearance.BorderSize = 0;
             this.incomeBtn_form.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.incomeBtn_form.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.incomeBtn_form.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(78)))));
             this.incomeBtn_form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.incomeBtn_form.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeBtn_form.ForeColor = System.Drawing.SystemColors.Control;
-            this.incomeBtn_form.Location = new System.Drawing.Point(129, 4);
+            this.incomeBtn_form.Location = new System.Drawing.Point(6, 4);
             this.incomeBtn_form.Name = "incomeBtn_form";
             this.incomeBtn_form.Size = new System.Drawing.Size(124, 22);
             this.incomeBtn_form.TabIndex = 2;
@@ -324,11 +332,11 @@
             this.expenseBtn_form.Cursor = System.Windows.Forms.Cursors.Hand;
             this.expenseBtn_form.FlatAppearance.BorderSize = 0;
             this.expenseBtn_form.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.expenseBtn_form.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.expenseBtn_form.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(78)))));
             this.expenseBtn_form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseBtn_form.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenseBtn_form.ForeColor = System.Drawing.Color.White;
-            this.expenseBtn_form.Location = new System.Drawing.Point(4, 4);
+            this.expenseBtn_form.Location = new System.Drawing.Point(131, 4);
             this.expenseBtn_form.Name = "expenseBtn_form";
             this.expenseBtn_form.Size = new System.Drawing.Size(119, 22);
             this.expenseBtn_form.TabIndex = 0;
@@ -391,12 +399,29 @@
             this.label1.Text = "Transaction Details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // warningTimer
+            // 
+            this.warningTimer.Interval = 3000;
+            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
+            // 
+            // warningLbl
+            // 
+            this.warningLbl.AutoSize = true;
+            this.warningLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
+            this.warningLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
+            this.warningLbl.Location = new System.Drawing.Point(76, 387);
+            this.warningLbl.Name = "warningLbl";
+            this.warningLbl.Size = new System.Drawing.Size(119, 16);
+            this.warningLbl.TabIndex = 13;
+            this.warningLbl.Text = "Fill in all the blanks";
+            // 
             // IncomeExpenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.ClientSize = new System.Drawing.Size(300, 400);
+            this.ClientSize = new System.Drawing.Size(300, 433);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -449,5 +474,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox amountTxtField;
         private System.Windows.Forms.RichTextBox noteTxtArea;
+        private System.Windows.Forms.Label warningLbl;
+        private System.Windows.Forms.Timer warningTimer;
     }
 }

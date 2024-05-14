@@ -32,6 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.yearlyBtn = new System.Windows.Forms.Button();
             this.monthlyBtn = new System.Windows.Forms.Button();
@@ -42,7 +44,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ExpenseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.summaryPanel = new System.Windows.Forms.Panel();
-            this.transactionTbl = new System.Windows.Forms.DataGridView();
             this.expenseBtn = new System.Windows.Forms.Button();
             this.incomeBtn = new System.Windows.Forms.Button();
             this.balanceLbl = new System.Windows.Forms.Label();
@@ -56,14 +57,16 @@
             this.dateRightBtn = new System.Windows.Forms.PictureBox();
             this.dateLeftBtn = new System.Windows.Forms.PictureBox();
             this.dateLbl = new System.Windows.Forms.Label();
+            this.transactionTbl = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).BeginInit();
             this.summaryPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -230,8 +233,8 @@
             this.summaryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.summaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.summaryPanel.Controls.Add(this.transactionTbl);
             this.summaryPanel.Controls.Add(this.expenseBtn);
+            this.summaryPanel.Controls.Add(this.transactionTbl);
             this.summaryPanel.Controls.Add(this.incomeBtn);
             this.summaryPanel.Controls.Add(this.balanceLbl);
             this.summaryPanel.Controls.Add(this.label6);
@@ -244,28 +247,6 @@
             this.summaryPanel.Name = "summaryPanel";
             this.summaryPanel.Size = new System.Drawing.Size(248, 321);
             this.summaryPanel.TabIndex = 4;
-            // 
-            // transactionTbl
-            // 
-            this.transactionTbl.AllowUserToResizeColumns = false;
-            this.transactionTbl.AllowUserToResizeRows = false;
-            this.transactionTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.transactionTbl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.transactionTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.transactionTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.transactionTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transactionTbl.EnableHeadersVisualStyles = false;
-            this.transactionTbl.Location = new System.Drawing.Point(13, 46);
-            this.transactionTbl.Name = "transactionTbl";
-            this.transactionTbl.Size = new System.Drawing.Size(224, 195);
-            this.transactionTbl.TabIndex = 21;
             // 
             // expenseBtn
             // 
@@ -428,6 +409,61 @@
             this.dateLbl.TabIndex = 0;
             this.dateLbl.Text = "Mon, 7 May";
             // 
+            // transactionTbl
+            // 
+            this.transactionTbl.AllowUserToAddRows = false;
+            this.transactionTbl.AllowUserToDeleteRows = false;
+            this.transactionTbl.AllowUserToResizeColumns = false;
+            this.transactionTbl.AllowUserToResizeRows = false;
+            this.transactionTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.transactionTbl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.transactionTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transactionTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.transactionTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transactionTbl.ColumnHeadersVisible = false;
+            this.transactionTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.transactionTbl.DefaultCellStyle = dataGridViewCellStyle2;
+            this.transactionTbl.EnableHeadersVisualStyles = false;
+            this.transactionTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.transactionTbl.Location = new System.Drawing.Point(13, 46);
+            this.transactionTbl.MultiSelect = false;
+            this.transactionTbl.Name = "transactionTbl";
+            this.transactionTbl.ReadOnly = true;
+            this.transactionTbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transactionTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.transactionTbl.RowHeadersVisible = false;
+            this.transactionTbl.Size = new System.Drawing.Size(224, 195);
+            this.transactionTbl.TabIndex = 23;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,9 +480,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseChart)).EndInit();
             this.summaryPanel.ResumeLayout(false);
             this.summaryPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTbl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,7 +499,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart ExpenseChart;
         private System.Windows.Forms.Panel summaryPanel;
-        private System.Windows.Forms.DataGridView transactionTbl;
         private System.Windows.Forms.Button expenseBtn;
         private System.Windows.Forms.Button incomeBtn;
         private System.Windows.Forms.Label balanceLbl;
@@ -477,5 +512,7 @@
         private System.Windows.Forms.PictureBox dateRightBtn;
         private System.Windows.Forms.PictureBox dateLeftBtn;
         private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.DataGridView transactionTbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

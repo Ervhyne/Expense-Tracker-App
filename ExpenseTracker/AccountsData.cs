@@ -21,7 +21,7 @@ namespace ExpenseTracker
             {
                 connection.Open();
 
-                string query = "SELECT userName FROM account"; // Assuming single column retrieval
+                string query = "SELECT userName FROM account ORDER BY userName";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {

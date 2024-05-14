@@ -24,15 +24,15 @@ namespace ExpenseTracker
                 string query = "";
                 if (filterType == "Expense")
                 {
-                    query = "SELECT categoryName FROM category WHERE transactionType = 'Expense'"; // Filter for Expense
+                    query = "SELECT categoryName FROM category WHERE transactionType = 'Expense' ORDER BY categoryName"; // Filter for Expense
                 }
                 else if (filterType == "Income")
                 {
-                    query = "SELECT categoryName FROM category WHERE transactionType = 'Income'"; // Filter for Income
+                    query = "SELECT categoryName FROM category WHERE transactionType = 'Income' ORDER BY categoryName"; // Filter for Income
                 }
                 else
                 {
-                    query = "SELECT categoryName FROM category"; // Show all if no filter
+                    query = "SELECT categoryName FROM category ORDER BY categoryName"; // Show all if no filter
                 }
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
