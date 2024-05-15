@@ -21,7 +21,7 @@ namespace ExpenseTracker
 
         public string ButtonType { get; set; }
 
-        // Connection string (replace with your actual connection details)
+        // Connection string
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
 
         private bool isIncomeSelected = false;
@@ -99,24 +99,21 @@ namespace ExpenseTracker
             // Check if userCbx is empty
             if (userCbx.SelectedIndex == -1)
             {
-                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
-                warningTimer.Start();
+                ShowAlert("Please select a user.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
             // Check if categoryCbx is empty
             if (categoryCbx.SelectedIndex == -1)
             {
-                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
-                warningTimer.Start();
+                ShowAlert("Please select a category.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
             // Check if datePicker is empty
             if (datePicker.Value == null || datePicker.Value == DateTime.MinValue)
             {
-                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
-                warningTimer.Start();
+                ShowAlert("Please select a date.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
@@ -128,86 +125,54 @@ namespace ExpenseTracker
                 return;
             }
 
-            // Check if the amount is zero
+            // Check if the amount is zero or invalid
             if (!decimal.TryParse(amountText, out decimal amount) || amount == 0)
             {
                 ShowAlert("Please enter a valid amount.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
-            // Check if the income or expense transaction type is selected
-            if (isIncomeSelected)
-            {
-                using (var connection = new MySqlConnection(connectionString))
-                {
-                    try
-                    {
-                        connection.Open();
-
-                        // Prepare the SQL command
-                        string sql = "INSERT INTO transactions (user, transactionType, category, amount, date, notes) VALUES (@user, @transactionType, @category, @amount, @date, @notes)";
-                        MySqlCommand command = new MySqlCommand(sql, connection);
-
-                        // Assign parameter values
-                        command.Parameters.AddWithValue("@user", userCbx.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@transactionType", "Income");
-                        command.Parameters.AddWithValue("@category", categoryCbx.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@amount", amount);
-                        command.Parameters.AddWithValue("@date", datePicker.Value);
-                        command.Parameters.AddWithValue("@notes", noteTxtArea.Text);
-
-                        // Execute the command
-                        command.ExecuteNonQuery();
-
-                        // Close the form after successful insertion
-                        Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle exceptions (e.g., display error message)
-                        MessageBox.Show("An error occurred while inserting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else if (isExpenseSelected)
-            {
-                using (var connection = new MySqlConnection(connectionString))
-                {
-                    try
-                    {
-                        connection.Open();
-
-                        // Prepare the SQL command
-                        string sql = "INSERT INTO transactions (user, transactionType, category, amount, date, notes) VALUES (@user, @transactionType, @category, @amount, @date, @notes)";
-                        MySqlCommand command = new MySqlCommand(sql, connection);
-
-                        // Assign parameter values
-                        command.Parameters.AddWithValue("@user", userCbx.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@transactionType", "Expense");
-                        command.Parameters.AddWithValue("@category", categoryCbx.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@amount", amount);
-                        command.Parameters.AddWithValue("@date", datePicker.Value);
-                        command.Parameters.AddWithValue("@notes", noteTxtArea.Text);
-
-                        // Execute the command
-                        command.ExecuteNonQuery();
-
-                        // Close the form after successful insertion
-                        Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle exceptions (e.g., display error message)
-                        MessageBox.Show("An error occurred while inserting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
+            // Determine the transaction type and execute the SQL command
+            string transactionType = isIncomeSelected ? "Income" : isExpenseSelected ? "Expense" : null;
+            if (transactionType == null)
             {
                 ShowAlert("Please select a transaction type.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
+            // Connection string (replace with your actual connection details)
+            string connectionString = "server=127.0.0.1;user=root;database=expensetrackingdb;password=";
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Prepare the SQL command
+                    string sql = "INSERT INTO transactions (user, transactionType, category, amount, date, notes) VALUES (@user, @transactionType, @category, @amount, @date, @notes)";
+                    MySqlCommand command = new MySqlCommand(sql, connection);
+
+                    // Assign parameter values
+                    command.Parameters.AddWithValue("@user", userCbx.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@transactionType", transactionType);
+                    command.Parameters.AddWithValue("@category", categoryCbx.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@amount", amount);
+                    command.Parameters.AddWithValue("@date", datePicker.Value);
+                    command.Parameters.AddWithValue("@notes", noteTxtArea.Text);
+
+                    // Execute the command
+                    command.ExecuteNonQuery();
+
+                    // Close the form after successful insertion
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions (e.g., display error message)
+                    MessageBox.Show("An error occurred while inserting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void IncomeExpenseForm_Load(object sender, EventArgs e)
@@ -339,14 +304,9 @@ namespace ExpenseTracker
             warningTimer.Start();
             warningTimer.Tick += (sender, e) =>
             {
-                warningLbl.ForeColor = Color.FromArgb(52, 52, 52); // Reset color
+                warningLbl.ForeColor = Color.FromArgb(57, 44, 71); // Reset color
                 warningTimer.Stop();
             };
-        }
-
-        private void warningTimer_Tick(object sender, EventArgs e)
-        {
-            warningLbl.ForeColor = Color.FromArgb(52, 52, 52);
         }
     }
 }

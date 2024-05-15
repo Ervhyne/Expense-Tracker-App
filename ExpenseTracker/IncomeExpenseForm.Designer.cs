@@ -402,19 +402,18 @@
             // warningTimer
             // 
             this.warningTimer.Interval = 3000;
-            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
             // 
             // warningLbl
             // 
-            this.warningLbl.AutoSize = true;
             this.warningLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
             this.warningLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
-            this.warningLbl.Location = new System.Drawing.Point(76, 387);
+            this.warningLbl.Location = new System.Drawing.Point(8, 387);
             this.warningLbl.Name = "warningLbl";
-            this.warningLbl.Size = new System.Drawing.Size(119, 16);
+            this.warningLbl.Size = new System.Drawing.Size(257, 16);
             this.warningLbl.TabIndex = 13;
             this.warningLbl.Text = "Fill in all the blanks";
+            this.warningLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // IncomeExpenseForm
             // 

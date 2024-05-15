@@ -235,6 +235,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DashboardData.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
