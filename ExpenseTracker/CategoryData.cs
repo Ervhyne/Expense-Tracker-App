@@ -46,5 +46,31 @@ namespace ExpenseTracker
 
             return dataTable;
         }
+
+        public DataTable GetExpenseDataByDateRange(string selectedUser, DateTime startDate, DateTime endDate)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT category, SUM(amount) AS amount FROM transactions WHERE user = @selectedUser AND transactionType = 'Expense' AND date BETWEEN @startDate AND @endDate GROUP BY category";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@selectedUser", selectedUser);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+
+            return dataTable;
+        }
     }
 }

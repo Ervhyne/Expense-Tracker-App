@@ -18,8 +18,6 @@ namespace ExpenseTracker
             this.connectionString = connectionString;
         }
 
-
-
         public DataTable GetTransactionData(string selectedUser)
         {
             DataTable dataTable = new DataTable();
@@ -28,7 +26,7 @@ namespace ExpenseTracker
             {
                 connection.Open();
 
-                string query = "SELECT amount, category FROM transactions WHERE user = @selectedUser AND transactionType = 'Expense' ORDER BY date";
+                string query = "SELECT amount, category, transactionType FROM transactions WHERE user = @selectedUser ORDER BY date";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -43,6 +41,8 @@ namespace ExpenseTracker
 
             return dataTable;
         }
+
+        
 
     }
 }

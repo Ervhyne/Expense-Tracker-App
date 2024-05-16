@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -79,12 +78,12 @@
             this.panel3.Controls.Add(this.dailyBtn);
             this.panel3.Controls.Add(this.userCbx);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.ExpenseChart);
             this.panel3.Controls.Add(this.summaryPanel);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.dateRightBtn);
             this.panel3.Controls.Add(this.dateLeftBtn);
             this.panel3.Controls.Add(this.dateLbl);
+            this.panel3.Controls.Add(this.ExpenseChart);
             this.panel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -105,6 +104,7 @@
             this.yearlyBtn.TabIndex = 18;
             this.yearlyBtn.Text = "Yearly";
             this.yearlyBtn.UseVisualStyleBackColor = false;
+            this.yearlyBtn.Click += new System.EventHandler(this.yearlyBtn_Click);
             // 
             // monthlyBtn
             // 
@@ -120,6 +120,7 @@
             this.monthlyBtn.TabIndex = 17;
             this.monthlyBtn.Text = "Monthly";
             this.monthlyBtn.UseVisualStyleBackColor = false;
+            this.monthlyBtn.Click += new System.EventHandler(this.monthlyBtn_Click);
             // 
             // weeklyBtn
             // 
@@ -135,6 +136,7 @@
             this.weeklyBtn.TabIndex = 16;
             this.weeklyBtn.Text = "Weekly";
             this.weeklyBtn.UseVisualStyleBackColor = false;
+            this.weeklyBtn.Click += new System.EventHandler(this.weeklyBtn_Click);
             // 
             // dailyBtn
             // 
@@ -150,6 +152,7 @@
             this.dailyBtn.TabIndex = 15;
             this.dailyBtn.Text = "Daily";
             this.dailyBtn.UseVisualStyleBackColor = false;
+            this.dailyBtn.Click += new System.EventHandler(this.dailyBtn_Click);
             // 
             // userCbx
             // 
@@ -205,26 +208,18 @@
             chartArea1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
             chartArea1.Name = "ChartArea1";
             this.ExpenseChart.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend1.ItemColumnSeparatorColor = System.Drawing.Color.Transparent;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-            legend1.Name = "Legend1";
-            legend1.TitleBackColor = System.Drawing.Color.Transparent;
-            this.ExpenseChart.Legends.Add(legend1);
-            this.ExpenseChart.Location = new System.Drawing.Point(269, 79);
+            this.ExpenseChart.Location = new System.Drawing.Point(270, 95);
             this.ExpenseChart.Name = "ExpenseChart";
             this.ExpenseChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.Color = System.Drawing.SystemColors.ActiveBorder;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Name = "Amount";
+            series1.YValuesPerPoint = 4;
             this.ExpenseChart.Series.Add(series1);
-            this.ExpenseChart.Size = new System.Drawing.Size(490, 346);
+            this.ExpenseChart.Size = new System.Drawing.Size(442, 327);
             this.ExpenseChart.TabIndex = 5;
             this.ExpenseChart.Text = "chart1";
             // 
@@ -293,7 +288,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.transactionTbl.DefaultCellStyle = dataGridViewCellStyle2;
-            this.transactionTbl.Enabled = false;
             this.transactionTbl.EnableHeadersVisualStyles = false;
             this.transactionTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.transactionTbl.Location = new System.Drawing.Point(13, 46);
@@ -432,29 +426,31 @@
             this.dateRightBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dateRightBtn.TabIndex = 2;
             this.dateRightBtn.TabStop = false;
+            this.dateRightBtn.Click += new System.EventHandler(this.dateRightBtn_Click);
             // 
             // dateLeftBtn
             // 
             this.dateLeftBtn.BackColor = System.Drawing.Color.Transparent;
             this.dateLeftBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateLeftBtn.Image = global::ExpenseTracker.Properties.Resources.left_arrow_icon;
-            this.dateLeftBtn.Location = new System.Drawing.Point(27, 4);
+            this.dateLeftBtn.Location = new System.Drawing.Point(15, 4);
             this.dateLeftBtn.Name = "dateLeftBtn";
             this.dateLeftBtn.Size = new System.Drawing.Size(26, 52);
             this.dateLeftBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dateLeftBtn.TabIndex = 1;
             this.dateLeftBtn.TabStop = false;
+            this.dateLeftBtn.Click += new System.EventHandler(this.dateLeftBtn_Click);
             // 
             // dateLbl
             // 
-            this.dateLbl.AutoSize = true;
             this.dateLbl.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLbl.ForeColor = System.Drawing.SystemColors.Control;
-            this.dateLbl.Location = new System.Drawing.Point(74, 16);
+            this.dateLbl.Location = new System.Drawing.Point(42, 16);
             this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(135, 28);
+            this.dateLbl.Size = new System.Drawing.Size(195, 28);
             this.dateLbl.TabIndex = 0;
             this.dateLbl.Text = "Mon, 7 May";
+            this.dateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Dashboard
             // 

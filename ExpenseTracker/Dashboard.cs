@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows;
 using GemBox.Document.Drawing;
 using MySql.Data.MySqlClient;
-using ZedGraph;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ExpenseTracker
 {
@@ -21,6 +21,11 @@ namespace ExpenseTracker
     {
         // Connection string 
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
+
+        private DateTime currentStartDate;
+        private DateTime currentEndDate;
+        private string currentView = "Daily"; // Tracks the current view (Daily, Weekly, Monthly, Yearly)
+
         public Dashboard()
         {
             InitializeComponent();
@@ -35,6 +40,15 @@ namespace ExpenseTracker
                 IncomeTodayIncome(selectedUser);
             }
 
+            // Register the event handlers for the buttons
+            dailyBtn.Click += dailyBtn_Click;
+            weeklyBtn.Click += weeklyBtn_Click;
+            monthlyBtn.Click += monthlyBtn_Click;
+            yearlyBtn.Click += yearlyBtn_Click;
+
+            SetDateRange("Daily"); // Default to daily view
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            dailyBtn.PerformClick();
         }
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,6 +64,9 @@ namespace ExpenseTracker
 
             // Update the balance label
             UpdateBalanceLabel(selectedUser);
+
+            DateTime today = DateTime.Today;
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
         }
 
         private void LoadData()
@@ -57,14 +74,22 @@ namespace ExpenseTracker
             if (userCbx.Items.Count > 0 && userCbx.SelectedItem != null)
             {
                 string selectedUser = userCbx.SelectedItem.ToString();
+                DataTable filteredTransactionData = GetFilteredTransactionData(selectedUser, currentStartDate, currentEndDate);
                 DashboardData dashboardData = new DashboardData(connectionString); // Create an instance of DashboardData
                 DataTable dashboardTable = dashboardData.GetTransactionData(selectedUser); // Retrieve filtered transaction data
+
                 transactionTbl.DataSource = dashboardTable; // Set the DataGridView's DataSource
+                LoadTransactionData(selectedUser, currentStartDate, currentEndDate);
                 ExpenseTodayIncome(selectedUser);
                 IncomeTodayIncome(selectedUser);
 
                 // Update the balance label
                 UpdateBalanceLabel(selectedUser);
+
+                // Load chart with transaction data
+                LoadChart(filteredTransactionData); // Pass the filtered transaction data to LoadChart
+
+                UpdateDashboard(selectedUser, currentStartDate, currentEndDate);
             }
             else
             {
@@ -72,6 +97,7 @@ namespace ExpenseTracker
                 System.Windows.Forms.MessageBox.Show("Please select a user.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private IncomeExpenseForm incomeExpenseForm;
         public static int parentX, parentY;
@@ -235,7 +261,7 @@ namespace ExpenseTracker
                 catch (Exception ex)
                 {
                     // Show any exceptions in a MessageBox
-                    // System.Windows.Forms.MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                      System.Windows.Forms.MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -305,6 +331,276 @@ namespace ExpenseTracker
                     }
                 }
             }
+        }
+
+        private void UpdateIncomeAndExpenseLabels(string selectedUser, DateTime startDate, DateTime endDate)
+        {
+            decimal totalIncome = GetTotalAmount(selectedUser, "Income", startDate, endDate);
+            decimal totalExpense = GetTotalAmount(selectedUser, "Expense", startDate, endDate);
+            decimal balance = totalIncome - totalExpense;
+
+            incomeMoneyLbl.Text = totalIncome.ToString("C");
+            expenseMoneyLbl.Text = totalExpense.ToString("C");
+            balanceLbl.Text = balance.ToString("C");
+        }
+
+        private decimal GetTotalAmount(string selectedUser, string transactionType, DateTime startDate, DateTime endDate)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Query to retrieve the total amount for the selected user and transaction type within the date range
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @selectedUser AND transactionType = @transactionType AND date BETWEEN @startDate AND @endDate";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@selectedUser", selectedUser);
+                    command.Parameters.AddWithValue("@transactionType", transactionType);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+
+                    object result = command.ExecuteScalar();
+
+                    // Check if the result is not null or DBNull
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToDecimal(result);
+                    }
+                    else
+                    {
+                        return 0; // No amount found
+                    }
+                }
+            }
+        }
+
+        private void LoadTransactionData(string selectedUser, DateTime startDate, DateTime endDate)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Query to retrieve transactions for the selected user within the date range and only for 'Expense' type
+                string query = "SELECT amount, category FROM transactions WHERE user = @selectedUser AND transactionType = 'Expense' AND date BETWEEN @startDate AND @endDate ORDER BY date";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@selectedUser", selectedUser);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        transactionTbl.DataSource = dataTable; // Set the DataGridView's DataSource
+                    }
+                }
+            }
+        }
+
+        private void UpdateDashboard(string selectedUser, DateTime startDate, DateTime endDate)
+        {
+            LoadTransactionData(selectedUser, startDate, endDate);
+            UpdateIncomeAndExpenseLabels(selectedUser, startDate, endDate);
+        }
+
+        private void dailyBtn_Click(object sender, EventArgs e)
+        {
+            SetDateRange("Daily");
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+            ChangeButtonColor(sender);
+        }
+
+        private void weeklyBtn_Click(object sender, EventArgs e)
+        {
+            SetDateRange("Weekly");
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+            ChangeButtonColor(sender);
+        }
+
+        private void monthlyBtn_Click(object sender, EventArgs e)
+        {
+            SetDateRange("Monthly");
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+            ChangeButtonColor(sender);
+        }
+
+        private void yearlyBtn_Click(object sender, EventArgs e)
+        {
+            SetDateRange("Yearly");
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+            ChangeButtonColor(sender);
+        }
+
+        private DataTable GetFilteredTransactionData(string selectedUser, DateTime startDate, DateTime endDate)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT amount, category, transactionType FROM transactions WHERE user = @selectedUser AND date BETWEEN @startDate AND @endDate ORDER BY date";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@selectedUser", selectedUser);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable; // Return the filtered transaction data
+                    }
+                }
+            }
+        }
+
+        private Button clickedButton; // Store reference to clicked button
+        private void ChangeButtonColor(object sender)
+        {
+            if (clickedButton != null)
+            {
+                clickedButton.BackColor = System.Drawing.Color.FromArgb(120, 102, 102); // Revert previous button
+            }
+            clickedButton = (Button)sender; // Store clicked button reference
+            clickedButton.BackColor = System.Drawing.Color.FromArgb(161, 156, 106); // Set clicked color
+        }
+
+        private void UpdateDateLabel()
+        {
+            switch (currentView)
+            {
+                case "Daily":
+                    dateLbl.Text = currentStartDate.ToString("ddd, dd MMM");
+                    break;
+                case "Weekly":
+                    dateLbl.Text = $"{currentStartDate:dd} - {currentEndDate:dd MMM}";
+                    break;
+                case "Monthly":
+                    dateLbl.Text = $"{currentStartDate:MMMM, yyyy}";
+                    break;
+                case "Yearly":
+                    dateLbl.Text = $"{currentStartDate:yyyy}";
+                    break;
+            }
+        }
+
+        private void SetDateRange(string view)
+        {
+            currentView = view;
+            DateTime today = DateTime.Today;
+            switch (view)
+            {
+                case "Daily":
+                    currentStartDate = today;
+                    currentEndDate = today;
+                    break;
+                case "Weekly":
+                    // Adjust to start on Monday
+                    int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                    currentStartDate = today.AddDays(-diff).Date;
+                    currentEndDate = currentStartDate.AddDays(6);
+                    break;
+                case "Monthly":
+                    currentStartDate = new DateTime(today.Year, today.Month, 1);
+                    currentEndDate = currentStartDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Yearly":
+                    currentStartDate = new DateTime(today.Year, 1, 1);
+                    currentEndDate = new DateTime(today.Year, 12, 31);
+                    break;
+            }
+            UpdateDateLabel();
+        }
+
+        private void dateLeftBtn_Click(object sender, EventArgs e)
+        {
+            switch (currentView)
+            {
+                case "Daily":
+                    currentStartDate = currentStartDate.AddDays(-1);
+                    currentEndDate = currentStartDate;
+                    break;
+                case "Weekly":
+                    currentStartDate = currentStartDate.AddDays(-7);
+                    currentEndDate = currentStartDate.AddDays(6);
+                    break;
+                case "Monthly":
+                    currentStartDate = currentStartDate.AddMonths(-1);
+                    currentEndDate = currentStartDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Yearly":
+                    currentStartDate = currentStartDate.AddYears(-1);
+                    currentEndDate = new DateTime(currentStartDate.Year, 12, 31);
+                    break;
+            }
+            UpdateDateLabel();
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Load chart with filtered transaction data
+        }
+
+        private void dateRightBtn_Click(object sender, EventArgs e)
+        {
+            switch (currentView)
+            {
+                case "Daily":
+                    currentStartDate = currentStartDate.AddDays(1);
+                    currentEndDate = currentStartDate;
+                    break;
+                case "Weekly":
+                    currentStartDate = currentStartDate.AddDays(7);
+                    currentEndDate = currentStartDate.AddDays(6);
+                    break;
+                case "Monthly":
+                    currentStartDate = currentStartDate.AddMonths(1);
+                    currentEndDate = currentStartDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Yearly":
+                    currentStartDate = currentStartDate.AddYears(1);
+                    currentEndDate = new DateTime(currentStartDate.Year, 12, 31);
+                    break;
+            }
+            UpdateDateLabel();
+            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Load chart with filtered transaction data
+        }
+
+        void LoadChart(DataTable transactionData)
+        {
+            // Clear existing series and legends
+            ExpenseChart.Series.Clear();
+            ExpenseChart.Legends.Clear();
+
+            // Create a new series
+            Series series = new Series("Amount"); // Set the series name
+            series.ChartType = SeriesChartType.Doughnut;
+            series["PieLabelStyle"] = "Outside";
+            series["PieLineColor"] = "Gray";
+            series.LabelForeColor = System.Drawing.Color.White;
+
+            // Add data points for expense transactions
+            foreach (DataRow row in transactionData.Rows)
+            {
+                string category = row["category"].ToString();
+                decimal amount = Convert.ToDecimal(row["amount"]);
+                string transactionType = row["transactionType"].ToString();
+
+                // Only add data points for expense transactions
+                if (transactionType == "Expense")
+                {
+                    series.Points.AddXY(category, amount);
+                }
+            }
+
+            // Add the series to the chart
+            ExpenseChart.Series.Add(series);
         }
     }
 }
