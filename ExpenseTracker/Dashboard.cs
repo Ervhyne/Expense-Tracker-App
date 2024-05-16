@@ -35,10 +35,14 @@ namespace ExpenseTracker
             // Update the expense label initially
             if (userCbx.Items.Count > 0)
             {
-                string selectedUser = userCbx.SelectedItem.ToString();
-                ExpenseTodayIncome(selectedUser);
-                IncomeTodayIncome(selectedUser);
+                string selectedUser = userCbx.SelectedItem?.ToString(); // Check if selected item is null
+                if (!string.IsNullOrEmpty(selectedUser))
+                {
+                    ExpenseTodayIncome(selectedUser);
+                    IncomeTodayIncome(selectedUser);
+                }
             }
+
 
             // Register the event handlers for the buttons
             dailyBtn.Click += dailyBtn_Click;
@@ -47,9 +51,10 @@ namespace ExpenseTracker
             yearlyBtn.Click += yearlyBtn_Click;
 
             SetDateRange("Daily"); // Default to daily view
-            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            UpdateDashboard(userCbx.SelectedItem?.ToString(), currentStartDate, currentEndDate); // Check if selected item is null
             dailyBtn.PerformClick();
         }
+
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,6 +95,7 @@ namespace ExpenseTracker
                 LoadChart(filteredTransactionData); // Pass the filtered transaction data to LoadChart
 
                 UpdateDashboard(selectedUser, currentStartDate, currentEndDate);
+
             }
             else
             {
@@ -130,6 +136,7 @@ namespace ExpenseTracker
         {
             incomeExpenseForm = null; // Reset the reference (optional)
         }
+
 
         private void PopulateUserComboBox()
         {
@@ -408,34 +415,46 @@ namespace ExpenseTracker
 
         private void dailyBtn_Click(object sender, EventArgs e)
         {
-            SetDateRange("Daily");
-            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
-            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
-            ChangeButtonColor(sender);
+            if (userCbx.SelectedItem != null && userCbx.Items.Count > 0)
+            {
+                SetDateRange("Daily");
+                UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+                LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+                ChangeButtonColor(sender);
+            }
         }
 
         private void weeklyBtn_Click(object sender, EventArgs e)
         {
-            SetDateRange("Weekly");
-            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
-            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
-            ChangeButtonColor(sender);
+            if (userCbx.SelectedItem != null && userCbx.Items.Count > 0)
+            {
+                SetDateRange("Weekly");
+                UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+                LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+                ChangeButtonColor(sender);
+            }
         }
 
         private void monthlyBtn_Click(object sender, EventArgs e)
         {
-            SetDateRange("Monthly");
-            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
-            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
-            ChangeButtonColor(sender);
+            if (userCbx.SelectedItem != null && userCbx.Items.Count > 0)
+            {
+                SetDateRange("Monthly");
+                UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+                LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+                ChangeButtonColor(sender);
+            }
         }
 
         private void yearlyBtn_Click(object sender, EventArgs e)
         {
-            SetDateRange("Yearly");
-            UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
-            LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
-            ChangeButtonColor(sender);
+            if (userCbx.SelectedItem != null && userCbx.Items.Count > 0)
+            {
+                SetDateRange("Yearly");
+                UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+                LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Pass filtered data to LoadChart
+                ChangeButtonColor(sender);
+            }
         }
 
         private DataTable GetFilteredTransactionData(string selectedUser, DateTime startDate, DateTime endDate)

@@ -14,7 +14,9 @@ namespace ExpenseTracker
 {
     public partial class Accounts : UserControl
     {
+
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
+        public event EventHandler AccountsUpdated;
 
         public Accounts()
         {
@@ -41,6 +43,8 @@ namespace ExpenseTracker
             accountsForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
             accountsForm.ShowDialog(); // Show the form as a modal dialog
             LoadData();
+            // Fire the event after adding an account
+            OnAccountsUpdated();
         }
 
         private void AccountsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -82,6 +86,13 @@ namespace ExpenseTracker
             }
 
             LoadData();
+            // Fire the event after adding an account
+            OnAccountsUpdated();
+        }
+
+        private void OnAccountsUpdated()
+        {
+            AccountsUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private AccountsFormEdit accountsFormEdit;
