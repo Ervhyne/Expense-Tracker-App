@@ -106,11 +106,12 @@ namespace ExpenseTracker
             {
                 connection.Open();
 
-                string deleteData = "DELETE FROM category WHERE categoryName = @categoryName";
+                string deleteData = "DELETE FROM category WHERE categoryName = @categoryName AND transactionType = @transactionType";
 
                 using (MySqlCommand command = new MySqlCommand(deleteData, connection))
                 {
                     command.Parameters.AddWithValue("@categoryName", getCategoryName);
+                    command.Parameters.AddWithValue("@transactionType", GetSelectedFilter());
                     command.ExecuteNonQuery();
                 }
 

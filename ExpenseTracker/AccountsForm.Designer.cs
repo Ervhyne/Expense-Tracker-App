@@ -113,15 +113,15 @@
             // 
             // warningLbl
             // 
-            this.warningLbl.AutoSize = true;
             this.warningLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.warningLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.warningLbl.Location = new System.Drawing.Point(86, 119);
+            this.warningLbl.Location = new System.Drawing.Point(12, 119);
             this.warningLbl.Name = "warningLbl";
-            this.warningLbl.Size = new System.Drawing.Size(119, 16);
+            this.warningLbl.Size = new System.Drawing.Size(266, 16);
             this.warningLbl.TabIndex = 19;
             this.warningLbl.Text = "Fill in all the blanks";
+            this.warningLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // warningTimer
             // 

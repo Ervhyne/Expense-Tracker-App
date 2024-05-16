@@ -31,8 +31,7 @@ namespace ExpenseTracker
         {
             if (string.IsNullOrEmpty(nameTxtBox.Text) || transactionTypeCbx.SelectedIndex == -1)
             {
-                warningLbl.ForeColor = Color.FromArgb(255, 86, 86);
-                warningTimer.Start();
+                ShowAlert("Fill in all the blanks.", "Input Error", Color.FromArgb(255, 86, 86));
                 return;
             }
 
@@ -43,11 +42,41 @@ namespace ExpenseTracker
             string category_name = nameTxtBox.Text;
             string transactionType = transactionTypeCbx.SelectedItem.ToString();
 
-            // Validate input (optional, add checks for empty or invalid values)
-
             // Using MySqlConnector (assuming you've added the reference)
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
+                // Write SQL select statement to check if the category already exists for the specified transaction type
+                string checkCategorySql = "SELECT COUNT(*) FROM category WHERE CategoryName = @categoryName AND TransactionType = @transactionType";
+
+                // Create a MySqlCommand object to check if the category exists
+                using (MySqlCommand checkCategoryCommand = new MySqlCommand(checkCategorySql, connection))
+                {
+                    // Add parameters to prevent SQL injection attacks
+                    checkCategoryCommand.Parameters.AddWithValue("@categoryName", category_name);
+                    checkCategoryCommand.Parameters.AddWithValue("@transactionType", transactionType);
+
+                    try
+                    {
+                        // Open the connection
+                        connection.Open();
+
+                        // Execute the query to check if the category already exists for the specified transaction type
+                        int categoryCount = Convert.ToInt32(checkCategoryCommand.ExecuteScalar());
+
+                        if (categoryCount > 0)
+                        {
+                            // Category already exists for the specified transaction type, show alert message
+                            ShowAlert("Category already exists.", "Input Error", Color.FromArgb(255, 86, 86));
+                            return;
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        // Handle potential MySQL exceptions
+                        Console.WriteLine("An error occurred: " + ex.Message);  // Replace with your desired error handling
+                    }
+                }
+
                 // Write SQL insert statement
                 string sql = "INSERT INTO category (CategoryName, TransactionType) VALUES (@categoryName, @transactionType)";
 
@@ -60,9 +89,6 @@ namespace ExpenseTracker
 
                     try
                     {
-                        // Open the connection
-                        connection.Open();
-
                         // Execute the query and handle success/failure using return value
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -74,7 +100,6 @@ namespace ExpenseTracker
 
                             // Trigger CategorySaved event (assuming CategoryForm has a reference to the Category control)
                             CategorySaved?.Invoke(this, EventArgs.Empty);  // Assuming an event is declared in Category
-
 
                             // Close the form after successful save
                             Close();
@@ -99,23 +124,16 @@ namespace ExpenseTracker
             warningLbl.ForeColor = Color.FromArgb(52, 52, 52);
         }
 
-        public string NameText
+        private void ShowAlert(string message, string caption, Color color)
         {
-            get { return nameTxtBox.Text; }
-            set { nameTxtBox.Text = value; }
-        }
-
-        public string TransactionType
-        {
-            get { return transactionTypeCbx.SelectedItem?.ToString(); } // Handle null case
-            set
+            warningLbl.Text = message;
+            warningLbl.ForeColor = color;
+            warningTimer.Start();
+            warningTimer.Tick += (sender, e) =>
             {
-                int index = transactionTypeCbx.FindStringExact(value);
-                if (index != -1) // Check if item exists
-                {
-                    transactionTypeCbx.SelectedIndex = index;
-                }
-            }
+                warningLbl.ForeColor = Color.FromArgb(52, 52, 52); // Reset color
+                warningTimer.Stop();
+            };
         }
     }
 }

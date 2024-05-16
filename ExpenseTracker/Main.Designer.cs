@@ -189,7 +189,7 @@
             this.dashboard1.Location = new System.Drawing.Point(0, 0);
             this.dashboard1.Name = "dashboard1";
             this.dashboard1.Size = new System.Drawing.Size(810, 440);
-            this.dashboard1.TabIndex = 0;
+            this.dashboard1.TabIndex = 3;
             // 
             // MaterialForm
             // 
