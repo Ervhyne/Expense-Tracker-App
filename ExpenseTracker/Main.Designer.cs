@@ -38,6 +38,7 @@
             this.accounts1 = new ExpenseTracker.Accounts();
             this.category1 = new ExpenseTracker.Category();
             this.dashboard1 = new ExpenseTracker.Dashboard();
+            this.reports1 = new ExpenseTracker.Reports();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.reports1);
             this.panel2.Controls.Add(this.accounts1);
             this.panel2.Controls.Add(this.category1);
             this.panel2.Controls.Add(this.dashboard1);
@@ -191,6 +193,14 @@
             this.dashboard1.Size = new System.Drawing.Size(810, 440);
             this.dashboard1.TabIndex = 3;
             // 
+            // reports1
+            // 
+            this.reports1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.reports1.Location = new System.Drawing.Point(0, 0);
+            this.reports1.Name = "reports1";
+            this.reports1.Size = new System.Drawing.Size(810, 440);
+            this.reports1.TabIndex = 4;
+            // 
             // MaterialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +231,7 @@
         private Accounts accounts1;
         private Category category1;
         private Dashboard dashboard1;
+        private Reports reports1;
     }
 }
 

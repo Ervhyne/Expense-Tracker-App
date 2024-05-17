@@ -68,7 +68,7 @@ namespace ExpenseTracker
         private void refreshBtn_MouseHover(object sender, EventArgs e)
         {
             // Show the ToolTip with the message "refresh user combo-box"
-            toolTip.Show("Refresh user combo-box", refreshBtn, 0, -20, 2000); // The message will appear above the button for 2 seconds
+            toolTip.Show("Refresh User Combo-box", refreshBtn, 0, -20, 2000); // The message will appear above the button for 2 seconds
         }
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
