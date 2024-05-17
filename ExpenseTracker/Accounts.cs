@@ -70,15 +70,35 @@ namespace ExpenseTracker
                 return;
             }
 
+            // Show a confirmation message box
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete the '{getUserName}' account and its records?",
+                                                  "Confirm Deletion",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Warning);
+
+            // If the user clicks 'No', cancel the delete operation
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                string deleteData = "DELETE FROM account WHERE userName = @userName";
-
-                using (MySqlCommand command = new MySqlCommand(deleteData, connection))
+                // Delete the user account
+                string deleteAccount = "DELETE FROM account WHERE userName = @userName";
+                using (MySqlCommand command = new MySqlCommand(deleteAccount, connection))
                 {
                     command.Parameters.AddWithValue("@userName", getUserName);
+                    command.ExecuteNonQuery();
+                }
+
+                // Delete the transactions related to the deleted user account
+                string deleteTransactions = "DELETE FROM transactions WHERE user = @user";
+                using (MySqlCommand command = new MySqlCommand(deleteTransactions, connection))
+                {
+                    command.Parameters.AddWithValue("@user", getUserName);
                     command.ExecuteNonQuery();
                 }
 
@@ -86,9 +106,11 @@ namespace ExpenseTracker
             }
 
             LoadData();
-            // Fire the event after adding an account
+            // Fire the event after deleting an account
             OnAccountsUpdated();
         }
+
+
 
         private void OnAccountsUpdated()
         {

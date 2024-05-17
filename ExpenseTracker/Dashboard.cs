@@ -26,6 +26,8 @@ namespace ExpenseTracker
         private DateTime currentEndDate;
         private string currentView = "Daily"; // Tracks the current view (Daily, Weekly, Monthly, Yearly)
 
+        private ToolTip toolTip;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -54,11 +56,19 @@ namespace ExpenseTracker
             UpdateDashboard(userCbx.SelectedItem?.ToString(), currentStartDate, currentEndDate); // Check if selected item is null
             dailyBtn.PerformClick();
 
+            // Initialize the ToolTip if it's not added through the designer
+            toolTip = new ToolTip();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            PopulateUserComboBox();
+            PopulateUserComboBox();   
+        }
+
+        private void refreshBtn_MouseHover(object sender, EventArgs e)
+        {
+            // Show the ToolTip with the message "refresh user combo-box"
+            toolTip.Show("Refresh user combo-box", refreshBtn, 0, -20, 2000); // The message will appear above the button for 2 seconds
         }
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -592,7 +602,7 @@ namespace ExpenseTracker
             LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Load chart with filtered transaction data
         }
 
-      
+       
 
         void LoadChart(DataTable transactionData)
         {
