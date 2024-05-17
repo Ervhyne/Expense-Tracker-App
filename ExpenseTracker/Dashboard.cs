@@ -29,7 +29,7 @@ namespace ExpenseTracker
         public Dashboard()
         {
             InitializeComponent();
-            PopulateUserComboBox(); // Populate the combo box first
+            PopulateUserComboBox();
             userCbx.SelectedIndexChanged += UserCbx_SelectedIndexChanged; // Register the event handler
 
             // Update the expense label initially
@@ -53,13 +53,17 @@ namespace ExpenseTracker
             SetDateRange("Daily"); // Default to daily view
             UpdateDashboard(userCbx.SelectedItem?.ToString(), currentStartDate, currentEndDate); // Check if selected item is null
             dailyBtn.PerformClick();
+
         }
 
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            PopulateUserComboBox();
+        }
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadData(); // Reload data when a different user is selected
-            
             // Get the selected user
             string selectedUser = userCbx.SelectedItem.ToString();
 
@@ -72,6 +76,7 @@ namespace ExpenseTracker
 
             DateTime today = DateTime.Today;
             UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
+            
         }
 
         private void LoadData()
@@ -94,7 +99,6 @@ namespace ExpenseTracker
                 // Load chart with transaction data
                 LoadChart(filteredTransactionData); // Pass the filtered transaction data to LoadChart
 
-                UpdateDashboard(selectedUser, currentStartDate, currentEndDate);
 
             }
             else
@@ -103,7 +107,6 @@ namespace ExpenseTracker
                 System.Windows.Forms.MessageBox.Show("Please select a user.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         private IncomeExpenseForm incomeExpenseForm;
         public static int parentX, parentY;
@@ -131,12 +134,10 @@ namespace ExpenseTracker
 
         }
 
-
         private void IncomeExpenseForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             incomeExpenseForm = null; // Reset the reference (optional)
         }
-
 
         private void PopulateUserComboBox()
         {
@@ -161,7 +162,7 @@ namespace ExpenseTracker
                         while (reader.Read())
                         {
                             string userName = reader["userName"].ToString();
-                            userCbx.Items.Add(userName);
+                            userCbx.Items.Add(userName);               
                         }
                     }
 
@@ -590,6 +591,8 @@ namespace ExpenseTracker
             UpdateDashboard(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate);
             LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Load chart with filtered transaction data
         }
+
+      
 
         void LoadChart(DataTable transactionData)
         {

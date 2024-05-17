@@ -313,6 +313,8 @@
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
     <Content Include="Resources\delete.png" />
+    <Content Include="Resources\loading-arrow.png" />
+    <None Include="Resources\loading-arrow1.png" />
     <Content Include="SQL\expensetrackingdb.sql" />
     <None Include="Resources\delete1.png" />
     <None Include="Resources\user.png" />

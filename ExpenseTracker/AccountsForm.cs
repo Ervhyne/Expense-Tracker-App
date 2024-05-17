@@ -15,7 +15,6 @@ namespace ExpenseTracker
     public partial class AccountsForm : Form
     {
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
-
         public AccountsForm()
         {
             InitializeComponent();
@@ -103,6 +102,11 @@ namespace ExpenseTracker
                 warningLbl.ForeColor = Color.FromArgb(57, 44, 71); // Reset color
                 warningTimer.Stop();
             };
+        }
+
+        public void ClickSaveButton()
+        {
+            saveBtn.PerformClick();
         }
     }
 }
