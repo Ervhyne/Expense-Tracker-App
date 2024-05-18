@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.refreshBtn = new System.Windows.Forms.PictureBox();
             this.userCbx = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateRightBtn = new System.Windows.Forms.PictureBox();
-            this.dateLeftBtn = new System.Windows.Forms.PictureBox();
             this.dateLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,12 +68,14 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.expenseMoneyLbl_monthly = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.refreshBtn = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dateRightBtn = new System.Windows.Forms.PictureBox();
+            this.dateLeftBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -92,6 +90,10 @@
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,21 +105,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(30, 30);
             this.panel1.TabIndex = 24;
-            // 
-            // refreshBtn
-            // 
-            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refreshBtn.BackColor = System.Drawing.Color.Transparent;
-            this.refreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.refreshBtn.Image = global::ExpenseTracker.Properties.Resources.loading_arrow;
-            this.refreshBtn.Location = new System.Drawing.Point(3, 3);
-            this.refreshBtn.Name = "refreshBtn";
-            this.refreshBtn.Size = new System.Drawing.Size(24, 24);
-            this.refreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.refreshBtn.TabIndex = 8;
-            this.refreshBtn.TabStop = false;
-            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
-            this.refreshBtn.MouseHover += new System.EventHandler(this.refreshBtn_MouseHover);
             // 
             // userCbx
             // 
@@ -145,45 +132,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(30, 30);
             this.panel4.TabIndex = 22;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // dateRightBtn
-            // 
-            this.dateRightBtn.BackColor = System.Drawing.Color.Transparent;
-            this.dateRightBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateRightBtn.Image = global::ExpenseTracker.Properties.Resources.right_arrow_icon;
-            this.dateRightBtn.Location = new System.Drawing.Point(158, 4);
-            this.dateRightBtn.Name = "dateRightBtn";
-            this.dateRightBtn.Size = new System.Drawing.Size(26, 52);
-            this.dateRightBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.dateRightBtn.TabIndex = 21;
-            this.dateRightBtn.TabStop = false;
-            this.dateRightBtn.Click += new System.EventHandler(this.dateRightBtn_Click);
-            // 
-            // dateLeftBtn
-            // 
-            this.dateLeftBtn.BackColor = System.Drawing.Color.Transparent;
-            this.dateLeftBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateLeftBtn.Image = global::ExpenseTracker.Properties.Resources.left_arrow_icon;
-            this.dateLeftBtn.Location = new System.Drawing.Point(15, 4);
-            this.dateLeftBtn.Name = "dateLeftBtn";
-            this.dateLeftBtn.Size = new System.Drawing.Size(26, 52);
-            this.dateLeftBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.dateLeftBtn.TabIndex = 20;
-            this.dateLeftBtn.TabStop = false;
-            this.dateLeftBtn.Click += new System.EventHandler(this.dateLeftBtn_Click);
             // 
             // dateLbl
             // 
@@ -239,6 +187,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(134)))), ((int)(((byte)(216)))));
+            this.panel5.Controls.Add(this.panel17);
             this.panel5.Controls.Add(this.panel11);
             this.panel5.Controls.Add(this.panel10);
             this.panel5.Controls.Add(this.panel9);
@@ -254,7 +203,7 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.panel11.Controls.Add(this.incomeMoneyLbl_total);
             this.panel11.Controls.Add(this.label7);
-            this.panel11.Location = new System.Drawing.Point(15, 252);
+            this.panel11.Location = new System.Drawing.Point(15, 259);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(284, 43);
             this.panel11.TabIndex = 29;
@@ -427,6 +376,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(151)))), ((int)(((byte)(95)))));
+            this.panel6.Controls.Add(this.panel18);
             this.panel6.Controls.Add(this.panel12);
             this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel13);
@@ -442,7 +392,7 @@
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.panel12.Controls.Add(this.expenseMoneyLbl_total);
             this.panel12.Controls.Add(this.label12);
-            this.panel12.Location = new System.Drawing.Point(16, 252);
+            this.panel12.Location = new System.Drawing.Point(17, 259);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(284, 43);
             this.panel12.TabIndex = 31;
@@ -612,6 +562,76 @@
             this.label10.Text = "Monthly expense";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.White;
+            this.panel17.Location = new System.Drawing.Point(9, 245);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(296, 5);
+            this.panel17.TabIndex = 30;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.White;
+            this.panel18.Location = new System.Drawing.Point(9, 245);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(296, 5);
+            this.panel18.TabIndex = 31;
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshBtn.BackColor = System.Drawing.Color.Transparent;
+            this.refreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshBtn.Image = global::ExpenseTracker.Properties.Resources.loading_arrow;
+            this.refreshBtn.Location = new System.Drawing.Point(3, 3);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(24, 24);
+            this.refreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.refreshBtn.TabIndex = 8;
+            this.refreshBtn.TabStop = false;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            this.refreshBtn.MouseHover += new System.EventHandler(this.refreshBtn_MouseHover);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dateRightBtn
+            // 
+            this.dateRightBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dateRightBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateRightBtn.Image = global::ExpenseTracker.Properties.Resources.right_arrow_icon;
+            this.dateRightBtn.Location = new System.Drawing.Point(158, 4);
+            this.dateRightBtn.Name = "dateRightBtn";
+            this.dateRightBtn.Size = new System.Drawing.Size(26, 52);
+            this.dateRightBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.dateRightBtn.TabIndex = 21;
+            this.dateRightBtn.TabStop = false;
+            this.dateRightBtn.Click += new System.EventHandler(this.dateRightBtn_Click);
+            // 
+            // dateLeftBtn
+            // 
+            this.dateLeftBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dateLeftBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateLeftBtn.Image = global::ExpenseTracker.Properties.Resources.left_arrow_icon;
+            this.dateLeftBtn.Location = new System.Drawing.Point(15, 4);
+            this.dateLeftBtn.Name = "dateLeftBtn";
+            this.dateLeftBtn.Size = new System.Drawing.Size(26, 52);
+            this.dateLeftBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.dateLeftBtn.TabIndex = 20;
+            this.dateLeftBtn.TabStop = false;
+            this.dateLeftBtn.Click += new System.EventHandler(this.dateLeftBtn_Click);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,11 +650,7 @@
             this.Name = "Reports";
             this.Size = new System.Drawing.Size(810, 440);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -649,6 +665,10 @@
             this.panel13.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -699,5 +719,7 @@
         private System.Windows.Forms.Label expenseMoneyLbl_yearly;
         private System.Windows.Forms.Label expenseMoneyLbl_yesterday;
         private System.Windows.Forms.Label expenseMoneyLbl_monthly;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
     }
 }

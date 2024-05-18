@@ -43,11 +43,17 @@ namespace ExpenseTracker
             category1.Visible = false;
             accounts1.Visible = false;
             reports1.Visible = false;
+            transactions1.Visible = false;
         }
 
         private void transactionsBtn_Click(object sender, EventArgs e)
         {
             ChangeButtonColor(sender);
+            dashboard1.Visible = false;
+            category1.Visible = false;
+            accounts1.Visible = false;
+            reports1.Visible = false;
+            transactions1.Visible = true;
         }
 
         private void reportsBtn_Click(object sender, EventArgs e)
@@ -57,6 +63,7 @@ namespace ExpenseTracker
             category1.Visible = false;
             accounts1.Visible = false;
             reports1.Visible = true;
+            transactions1.Visible = false;
         }
 
         private void categoriesBtn_Click(object sender, EventArgs e)
@@ -66,6 +73,7 @@ namespace ExpenseTracker
             category1.Visible = true;
             accounts1.Visible = false;
             reports1.Visible = false;
+            transactions1.Visible = false;
         }
 
         private void accountsBtn_Click(object sender, EventArgs e)
@@ -75,6 +83,7 @@ namespace ExpenseTracker
             category1.Visible = false;
             accounts1.Visible = true;
             reports1.Visible = false;
+            transactions1.Visible = false;
         }
 
         private void MaterialForm_Load(object sender, EventArgs e)

@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.warningLbl = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.noteTxtArea = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.amountTxtField = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
-            this.warningLbl = new System.Windows.Forms.Label();
+            this.noteTxtArea = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -90,6 +90,18 @@
             this.panel1.Size = new System.Drawing.Size(278, 411);
             this.panel1.TabIndex = 0;
             // 
+            // warningLbl
+            // 
+            this.warningLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
+            this.warningLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
+            this.warningLbl.Location = new System.Drawing.Point(8, 387);
+            this.warningLbl.Name = "warningLbl";
+            this.warningLbl.Size = new System.Drawing.Size(257, 16);
+            this.warningLbl.TabIndex = 13;
+            this.warningLbl.Text = "Fill in all the blanks";
+            this.warningLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
@@ -98,17 +110,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(257, 70);
             this.panel9.TabIndex = 17;
-            // 
-            // noteTxtArea
-            // 
-            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
-            this.noteTxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.noteTxtArea.ForeColor = System.Drawing.SystemColors.Window;
-            this.noteTxtArea.Location = new System.Drawing.Point(8, 8);
-            this.noteTxtArea.Name = "noteTxtArea";
-            this.noteTxtArea.Size = new System.Drawing.Size(241, 54);
-            this.noteTxtArea.TabIndex = 0;
-            this.noteTxtArea.Text = "";
             // 
             // label7
             // 
@@ -403,17 +404,18 @@
             // 
             this.warningTimer.Interval = 3000;
             // 
-            // warningLbl
+            // noteTxtArea
             // 
-            this.warningLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
-            this.warningLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(44)))), ((int)(((byte)(71)))));
-            this.warningLbl.Location = new System.Drawing.Point(8, 387);
-            this.warningLbl.Name = "warningLbl";
-            this.warningLbl.Size = new System.Drawing.Size(257, 16);
-            this.warningLbl.TabIndex = 13;
-            this.warningLbl.Text = "Fill in all the blanks";
-            this.warningLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
+            this.noteTxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.noteTxtArea.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteTxtArea.ForeColor = System.Drawing.SystemColors.Window;
+            this.noteTxtArea.Location = new System.Drawing.Point(8, 8);
+            this.noteTxtArea.Margin = new System.Windows.Forms.Padding(4);
+            this.noteTxtArea.Multiline = true;
+            this.noteTxtArea.Name = "noteTxtArea";
+            this.noteTxtArea.Size = new System.Drawing.Size(241, 54);
+            this.noteTxtArea.TabIndex = 1;
             // 
             // IncomeExpenseForm
             // 
@@ -432,6 +434,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -472,8 +475,8 @@
         private Krypton.Toolkit.KryptonDateTimePicker datePicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox amountTxtField;
-        private System.Windows.Forms.RichTextBox noteTxtArea;
         private System.Windows.Forms.Label warningLbl;
         private System.Windows.Forms.Timer warningTimer;
+        private System.Windows.Forms.TextBox noteTxtArea;
     }
 }

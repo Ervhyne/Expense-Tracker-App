@@ -19,6 +19,7 @@ namespace ExpenseTracker
             UpdateDateLabel();
             PopulateUserComboBox();
             UpdateIncomeLabels();
+            UpdateExpenseLabels();
 
             // Initialize the ToolTip if it's not added through the designer
             toolTip = new ToolTip();
@@ -33,12 +34,16 @@ namespace ExpenseTracker
         {
             currentYear = currentYear.AddYears(-1);
             UpdateDateLabel();
+            UpdateIncomeLabels();
+            UpdateExpenseLabels();
         }
 
         private void dateRightBtn_Click(object sender, EventArgs e)
         {
             currentYear = currentYear.AddYears(1);
             UpdateDateLabel();
+            UpdateIncomeLabels();
+            UpdateExpenseLabels();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -99,9 +104,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE()";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE() AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -113,9 +119,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE() - INTERVAL 1 DAY";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE() - INTERVAL 1 DAY AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -127,9 +134,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -141,9 +149,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND YEAR(date) = YEAR(CURDATE())";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -158,6 +167,7 @@ namespace ExpenseTracker
                 string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -173,7 +183,6 @@ namespace ExpenseTracker
             incomeMoneyLbl_monthly.Text = GetIncomeForThisMonth(selectedUser).ToString("C");
             incomeMoneyLbl_yearly.Text = GetIncomeForThisYear(selectedUser).ToString("C");
             incomeMoneyLbl_total.Text = GetTotalIncome(selectedUser).ToString("C");
-
         }
 
         private decimal GetExpenseForToday(string user)
@@ -181,9 +190,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE()";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE() AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -195,9 +205,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE() - INTERVAL 1 DAY";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE() - INTERVAL 1 DAY AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -209,9 +220,10 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
@@ -223,14 +235,15 @@ namespace ExpenseTracker
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND YEAR(date) = YEAR(CURDATE())";
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND YEAR(date) = @year";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@year", currentYear.Year);
 
                 object result = command.ExecuteScalar();
                 return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
             }
-        }
+        }   
 
         private decimal GetTotalExpense(string user)
         {
