@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
-using System.Windows.Media;
-using System.Windows;
-using GemBox.Document.Drawing;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ExpenseTracker
 {
@@ -23,6 +10,7 @@ namespace ExpenseTracker
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
 
         private DateTime currentYear;
+        private ToolTip toolTip;
 
         public Reports()
         {
@@ -30,6 +18,10 @@ namespace ExpenseTracker
             currentYear = DateTime.Now;
             UpdateDateLabel();
             PopulateUserComboBox();
+            UpdateIncomeLabels();
+
+            // Initialize the ToolTip if it's not added through the designer
+            toolTip = new ToolTip();
         }
 
         private void UpdateDateLabel()
@@ -49,11 +41,15 @@ namespace ExpenseTracker
             UpdateDateLabel();
         }
 
-
-
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             PopulateUserComboBox();
+        }
+
+        private void refreshBtn_MouseHover(object sender, EventArgs e)
+        {
+            // Show the ToolTip with the message "refresh user combo-box"
+            toolTip.Show("Refresh User Combo-box and Datas", refreshBtn, 0, -20, 2000); // The message will appear above the button for 2 seconds
         }
 
         private void PopulateUserComboBox()
@@ -96,6 +92,176 @@ namespace ExpenseTracker
                     // You may want to display an error message to the user here
                 }
             }
+        }
+
+        private decimal GetIncomeForToday(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE()";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetIncomeForYesterday(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND DATE(date) = CURDATE() - INTERVAL 1 DAY";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetIncomeForThisMonth(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetIncomeForThisYear(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income' AND YEAR(date) = YEAR(CURDATE())";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetTotalIncome(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Income'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private void UpdateIncomeLabels()
+        {
+            string selectedUser = userCbx.SelectedItem.ToString();
+
+            incomeMoneyLbl_today.Text = GetIncomeForToday(selectedUser).ToString("C");
+            incomeMoneyLbl_yesterday.Text = GetIncomeForYesterday(selectedUser).ToString("C");
+            incomeMoneyLbl_monthly.Text = GetIncomeForThisMonth(selectedUser).ToString("C");
+            incomeMoneyLbl_yearly.Text = GetIncomeForThisYear(selectedUser).ToString("C");
+            incomeMoneyLbl_total.Text = GetTotalIncome(selectedUser).ToString("C");
+
+        }
+
+        private decimal GetExpenseForToday(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE()";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetExpenseForYesterday(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND DATE(date) = CURDATE() - INTERVAL 1 DAY";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetExpenseForThisMonth(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetExpenseForThisYear(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense' AND YEAR(date) = YEAR(CURDATE())";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private decimal GetTotalExpense(string user)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT SUM(amount) FROM transactions WHERE user = @user AND transactionType = 'Expense'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@user", user);
+
+                object result = command.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
+        private void UpdateExpenseLabels()
+        {
+            string selectedUser = userCbx.SelectedItem.ToString();
+
+            expenseMoneyLbl_today.Text = GetExpenseForToday(selectedUser).ToString("C");
+            expenseMoneyLbl_yesterday.Text = GetExpenseForYesterday(selectedUser).ToString("C");
+            expenseMoneyLbl_monthly.Text = GetExpenseForThisMonth(selectedUser).ToString("C");
+            expenseMoneyLbl_yearly.Text = GetExpenseForThisYear(selectedUser).ToString("C");
+            expenseMoneyLbl_total.Text = GetTotalExpense(selectedUser).ToString("C");
+        }
+
+
+        private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateIncomeLabels();
+            UpdateExpenseLabels();
         }
     }
 }

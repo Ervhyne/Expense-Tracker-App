@@ -37,41 +37,41 @@
             this.dateLeftBtn = new System.Windows.Forms.PictureBox();
             this.dateLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.incomeMoneyLbl_total = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.incomeMoneyLbl_yearly = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.incomeMoneyLbl_monthly = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.incomeMoneyLbl_yesterday = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.incomeMoneyLbl_today = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.expenseMoneyLbl_total = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.expenseMoneyLbl = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.expenseMoneyLbl_today = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.expenseMoneyLbl_yearly = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.expenseMoneyLbl_yesterday = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.expenseMoneyLbl_monthly = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).BeginInit();
             this.panel4.SuspendLayout();
@@ -81,17 +81,17 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,6 +117,7 @@
             this.refreshBtn.TabIndex = 8;
             this.refreshBtn.TabStop = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            this.refreshBtn.MouseHover += new System.EventHandler(this.refreshBtn_MouseHover);
             // 
             // userCbx
             // 
@@ -133,6 +134,7 @@
             this.userCbx.Name = "userCbx";
             this.userCbx.Size = new System.Drawing.Size(132, 30);
             this.userCbx.TabIndex = 23;
+            this.userCbx.SelectedIndexChanged += new System.EventHandler(this.UserCbx_SelectedIndexChanged);
             // 
             // panel4
             // 
@@ -203,6 +205,17 @@
             this.panel3.Size = new System.Drawing.Size(322, 34);
             this.panel3.TabIndex = 26;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(69, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 30);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "EXPENSE’S DATA ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
@@ -211,6 +224,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 34);
             this.panel2.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(68, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 30);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "INCOME’S DATA ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -225,6 +249,181 @@
             this.panel5.Size = new System.Drawing.Size(314, 324);
             this.panel5.TabIndex = 28;
             // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel11.Controls.Add(this.incomeMoneyLbl_total);
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Location = new System.Drawing.Point(15, 252);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(284, 43);
+            this.panel11.TabIndex = 29;
+            // 
+            // incomeMoneyLbl_total
+            // 
+            this.incomeMoneyLbl_total.BackColor = System.Drawing.Color.Transparent;
+            this.incomeMoneyLbl_total.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeMoneyLbl_total.ForeColor = System.Drawing.Color.White;
+            this.incomeMoneyLbl_total.Location = new System.Drawing.Point(26, 21);
+            this.incomeMoneyLbl_total.Name = "incomeMoneyLbl_total";
+            this.incomeMoneyLbl_total.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.incomeMoneyLbl_total.Size = new System.Drawing.Size(259, 20);
+            this.incomeMoneyLbl_total.TabIndex = 33;
+            this.incomeMoneyLbl_total.Text = "₱1000";
+            this.incomeMoneyLbl_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label7.Location = new System.Drawing.Point(1, -3);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(169, 28);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Total income";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel10.Controls.Add(this.incomeMoneyLbl_yearly);
+            this.panel10.Controls.Add(this.label6);
+            this.panel10.Location = new System.Drawing.Point(15, 194);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(284, 43);
+            this.panel10.TabIndex = 29;
+            // 
+            // incomeMoneyLbl_yearly
+            // 
+            this.incomeMoneyLbl_yearly.BackColor = System.Drawing.Color.Transparent;
+            this.incomeMoneyLbl_yearly.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeMoneyLbl_yearly.ForeColor = System.Drawing.Color.White;
+            this.incomeMoneyLbl_yearly.Location = new System.Drawing.Point(26, 21);
+            this.incomeMoneyLbl_yearly.Name = "incomeMoneyLbl_yearly";
+            this.incomeMoneyLbl_yearly.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.incomeMoneyLbl_yearly.Size = new System.Drawing.Size(259, 20);
+            this.incomeMoneyLbl_yearly.TabIndex = 34;
+            this.incomeMoneyLbl_yearly.Text = "₱1000";
+            this.incomeMoneyLbl_yearly.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label6.Location = new System.Drawing.Point(1, -3);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 28);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Yearly income";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel9.Controls.Add(this.incomeMoneyLbl_monthly);
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Location = new System.Drawing.Point(15, 136);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(284, 43);
+            this.panel9.TabIndex = 29;
+            // 
+            // incomeMoneyLbl_monthly
+            // 
+            this.incomeMoneyLbl_monthly.BackColor = System.Drawing.Color.Transparent;
+            this.incomeMoneyLbl_monthly.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeMoneyLbl_monthly.ForeColor = System.Drawing.Color.White;
+            this.incomeMoneyLbl_monthly.Location = new System.Drawing.Point(26, 21);
+            this.incomeMoneyLbl_monthly.Name = "incomeMoneyLbl_monthly";
+            this.incomeMoneyLbl_monthly.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.incomeMoneyLbl_monthly.Size = new System.Drawing.Size(259, 20);
+            this.incomeMoneyLbl_monthly.TabIndex = 33;
+            this.incomeMoneyLbl_monthly.Text = "₱1000";
+            this.incomeMoneyLbl_monthly.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label5.Location = new System.Drawing.Point(1, -3);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 28);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Monthly income";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel8.Controls.Add(this.incomeMoneyLbl_yesterday);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Location = new System.Drawing.Point(15, 77);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(284, 43);
+            this.panel8.TabIndex = 29;
+            // 
+            // incomeMoneyLbl_yesterday
+            // 
+            this.incomeMoneyLbl_yesterday.BackColor = System.Drawing.Color.Transparent;
+            this.incomeMoneyLbl_yesterday.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeMoneyLbl_yesterday.ForeColor = System.Drawing.Color.White;
+            this.incomeMoneyLbl_yesterday.Location = new System.Drawing.Point(26, 21);
+            this.incomeMoneyLbl_yesterday.Name = "incomeMoneyLbl_yesterday";
+            this.incomeMoneyLbl_yesterday.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.incomeMoneyLbl_yesterday.Size = new System.Drawing.Size(259, 20);
+            this.incomeMoneyLbl_yesterday.TabIndex = 32;
+            this.incomeMoneyLbl_yesterday.Text = "₱1000";
+            this.incomeMoneyLbl_yesterday.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label4.Location = new System.Drawing.Point(1, -3);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 28);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Yesterday\'s income";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel7.Controls.Add(this.incomeMoneyLbl_today);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(15, 18);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(284, 43);
+            this.panel7.TabIndex = 28;
+            // 
+            // incomeMoneyLbl_today
+            // 
+            this.incomeMoneyLbl_today.BackColor = System.Drawing.Color.Transparent;
+            this.incomeMoneyLbl_today.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeMoneyLbl_today.ForeColor = System.Drawing.Color.White;
+            this.incomeMoneyLbl_today.Location = new System.Drawing.Point(23, 21);
+            this.incomeMoneyLbl_today.Name = "incomeMoneyLbl_today";
+            this.incomeMoneyLbl_today.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.incomeMoneyLbl_today.Size = new System.Drawing.Size(262, 20);
+            this.incomeMoneyLbl_today.TabIndex = 31;
+            this.incomeMoneyLbl_today.Text = "₱1000";
+            this.incomeMoneyLbl_today.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label3.Location = new System.Drawing.Point(1, -3);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 28);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Today’s income";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(151)))), ((int)(((byte)(95)))));
@@ -238,377 +437,180 @@
             this.panel6.Size = new System.Drawing.Size(314, 324);
             this.panel6.TabIndex = 29;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel7.Controls.Add(this.expenseMoneyLbl);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(15, 18);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(284, 43);
-            this.panel7.TabIndex = 28;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel8.Controls.Add(this.label13);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(15, 77);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(284, 43);
-            this.panel8.TabIndex = 29;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Controls.Add(this.label5);
-            this.panel9.Location = new System.Drawing.Point(15, 136);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(284, 43);
-            this.panel9.TabIndex = 29;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.label6);
-            this.panel10.Location = new System.Drawing.Point(15, 194);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(284, 43);
-            this.panel10.TabIndex = 29;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel11.Controls.Add(this.label14);
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Location = new System.Drawing.Point(15, 252);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(284, 43);
-            this.panel11.TabIndex = 29;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel12.Controls.Add(this.label22);
+            this.panel12.Controls.Add(this.expenseMoneyLbl_total);
             this.panel12.Controls.Add(this.label12);
             this.panel12.Location = new System.Drawing.Point(16, 252);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(284, 43);
             this.panel12.TabIndex = 31;
             // 
-            // panel13
+            // expenseMoneyLbl_total
             // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel13.Controls.Add(this.label21);
-            this.panel13.Controls.Add(this.label11);
-            this.panel13.Location = new System.Drawing.Point(16, 194);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(284, 43);
-            this.panel13.TabIndex = 32;
+            this.expenseMoneyLbl_total.BackColor = System.Drawing.Color.Transparent;
+            this.expenseMoneyLbl_total.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseMoneyLbl_total.ForeColor = System.Drawing.Color.White;
+            this.expenseMoneyLbl_total.Location = new System.Drawing.Point(26, 21);
+            this.expenseMoneyLbl_total.Name = "expenseMoneyLbl_total";
+            this.expenseMoneyLbl_total.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.expenseMoneyLbl_total.Size = new System.Drawing.Size(259, 20);
+            this.expenseMoneyLbl_total.TabIndex = 39;
+            this.expenseMoneyLbl_total.Text = "₱1000";
+            this.expenseMoneyLbl_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel14
+            // label12
             // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel14.Controls.Add(this.label20);
-            this.panel14.Controls.Add(this.label10);
-            this.panel14.Location = new System.Drawing.Point(16, 136);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(284, 43);
-            this.panel14.TabIndex = 33;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel15.Controls.Add(this.label19);
-            this.panel15.Controls.Add(this.label8);
-            this.panel15.Location = new System.Drawing.Point(16, 77);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(284, 43);
-            this.panel15.TabIndex = 34;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label12.Location = new System.Drawing.Point(1, -3);
+            this.label12.Margin = new System.Windows.Forms.Padding(0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(169, 28);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "Total expense";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.panel16.Controls.Add(this.label18);
+            this.panel16.Controls.Add(this.expenseMoneyLbl_today);
             this.panel16.Controls.Add(this.label9);
             this.panel16.Location = new System.Drawing.Point(16, 18);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(284, 43);
             this.panel16.TabIndex = 30;
             // 
-            // label1
+            // expenseMoneyLbl_today
             // 
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(68, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 30);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "INCOME’S DATA ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(69, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 30);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "EXPENSE’S DATA ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label3.Location = new System.Drawing.Point(3, 2);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 28);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Today’s income";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label4.Location = new System.Drawing.Point(3, 2);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 28);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Weekly income";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label5.Location = new System.Drawing.Point(3, 2);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 28);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Monthly income";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label6.Location = new System.Drawing.Point(3, 2);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 28);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Yearly income";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label7.Location = new System.Drawing.Point(3, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(169, 28);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Total income";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label8.Location = new System.Drawing.Point(3, 2);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 28);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Weekly income";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.expenseMoneyLbl_today.BackColor = System.Drawing.Color.Transparent;
+            this.expenseMoneyLbl_today.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseMoneyLbl_today.ForeColor = System.Drawing.Color.White;
+            this.expenseMoneyLbl_today.Location = new System.Drawing.Point(23, 21);
+            this.expenseMoneyLbl_today.Name = "expenseMoneyLbl_today";
+            this.expenseMoneyLbl_today.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.expenseMoneyLbl_today.Size = new System.Drawing.Size(262, 20);
+            this.expenseMoneyLbl_today.TabIndex = 35;
+            this.expenseMoneyLbl_today.Text = "₱1000";
+            this.expenseMoneyLbl_today.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label9.Location = new System.Drawing.Point(3, 2);
+            this.label9.Location = new System.Drawing.Point(1, -3);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 28);
+            this.label9.Size = new System.Drawing.Size(148, 28);
             this.label9.TabIndex = 32;
-            this.label9.Text = "Today’s income";
+            this.label9.Text = "Today’s  expense";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label10
+            // panel13
             // 
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label10.Location = new System.Drawing.Point(3, 2);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 28);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Monthly income";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel13.Controls.Add(this.expenseMoneyLbl_yearly);
+            this.panel13.Controls.Add(this.label11);
+            this.panel13.Location = new System.Drawing.Point(16, 194);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(284, 43);
+            this.panel13.TabIndex = 32;
+            // 
+            // expenseMoneyLbl_yearly
+            // 
+            this.expenseMoneyLbl_yearly.BackColor = System.Drawing.Color.Transparent;
+            this.expenseMoneyLbl_yearly.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseMoneyLbl_yearly.ForeColor = System.Drawing.Color.White;
+            this.expenseMoneyLbl_yearly.Location = new System.Drawing.Point(26, 21);
+            this.expenseMoneyLbl_yearly.Name = "expenseMoneyLbl_yearly";
+            this.expenseMoneyLbl_yearly.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.expenseMoneyLbl_yearly.Size = new System.Drawing.Size(259, 20);
+            this.expenseMoneyLbl_yearly.TabIndex = 38;
+            this.expenseMoneyLbl_yearly.Text = "₱1000";
+            this.expenseMoneyLbl_yearly.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label11.Location = new System.Drawing.Point(3, 2);
+            this.label11.Location = new System.Drawing.Point(1, -3);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(169, 28);
             this.label11.TabIndex = 35;
-            this.label11.Text = "Yearly income";
+            this.label11.Text = "Yearly expense";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
+            // panel15
             // 
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label12.Location = new System.Drawing.Point(3, 2);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(169, 28);
-            this.label12.TabIndex = 36;
-            this.label12.Text = "Total income";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel15.Controls.Add(this.expenseMoneyLbl_yesterday);
+            this.panel15.Controls.Add(this.label8);
+            this.panel15.Location = new System.Drawing.Point(16, 77);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(284, 43);
+            this.panel15.TabIndex = 34;
             // 
-            // expenseMoneyLbl
+            // expenseMoneyLbl_yesterday
             // 
-            this.expenseMoneyLbl.BackColor = System.Drawing.Color.Transparent;
-            this.expenseMoneyLbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expenseMoneyLbl.ForeColor = System.Drawing.Color.White;
-            this.expenseMoneyLbl.Location = new System.Drawing.Point(109, 22);
-            this.expenseMoneyLbl.Name = "expenseMoneyLbl";
-            this.expenseMoneyLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.expenseMoneyLbl.Size = new System.Drawing.Size(173, 20);
-            this.expenseMoneyLbl.TabIndex = 31;
-            this.expenseMoneyLbl.Text = "₱1000";
-            this.expenseMoneyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.expenseMoneyLbl_yesterday.BackColor = System.Drawing.Color.Transparent;
+            this.expenseMoneyLbl_yesterday.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseMoneyLbl_yesterday.ForeColor = System.Drawing.Color.White;
+            this.expenseMoneyLbl_yesterday.Location = new System.Drawing.Point(26, 21);
+            this.expenseMoneyLbl_yesterday.Name = "expenseMoneyLbl_yesterday";
+            this.expenseMoneyLbl_yesterday.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.expenseMoneyLbl_yesterday.Size = new System.Drawing.Size(259, 20);
+            this.expenseMoneyLbl_yesterday.TabIndex = 36;
+            this.expenseMoneyLbl_yesterday.Text = "₱1000";
+            this.expenseMoneyLbl_yesterday.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label13
+            // label8
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(109, 22);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(173, 20);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "₱1000";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label8.Location = new System.Drawing.Point(1, -3);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(169, 28);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Yesterday\'s expense";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label14
+            // panel14
             // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(109, 22);
-            this.label14.Name = "label14";
-            this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label14.Size = new System.Drawing.Size(173, 20);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "₱1000";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.panel14.Controls.Add(this.expenseMoneyLbl_monthly);
+            this.panel14.Controls.Add(this.label10);
+            this.panel14.Location = new System.Drawing.Point(16, 136);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(284, 43);
+            this.panel14.TabIndex = 33;
             // 
-            // label15
+            // expenseMoneyLbl_monthly
             // 
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(109, 22);
-            this.label15.Name = "label15";
-            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label15.Size = new System.Drawing.Size(173, 20);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "₱1000";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.expenseMoneyLbl_monthly.BackColor = System.Drawing.Color.Transparent;
+            this.expenseMoneyLbl_monthly.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseMoneyLbl_monthly.ForeColor = System.Drawing.Color.White;
+            this.expenseMoneyLbl_monthly.Location = new System.Drawing.Point(26, 21);
+            this.expenseMoneyLbl_monthly.Name = "expenseMoneyLbl_monthly";
+            this.expenseMoneyLbl_monthly.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.expenseMoneyLbl_monthly.Size = new System.Drawing.Size(259, 20);
+            this.expenseMoneyLbl_monthly.TabIndex = 37;
+            this.expenseMoneyLbl_monthly.Text = "₱1000";
+            this.expenseMoneyLbl_monthly.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label16
+            // label10
             // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(109, 22);
-            this.label16.Name = "label16";
-            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label16.Size = new System.Drawing.Size(173, 20);
-            this.label16.TabIndex = 34;
-            this.label16.Text = "₱1000";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(109, 22);
-            this.label18.Name = "label18";
-            this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label18.Size = new System.Drawing.Size(173, 20);
-            this.label18.TabIndex = 35;
-            this.label18.Text = "₱1000";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(109, 22);
-            this.label19.Name = "label19";
-            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label19.Size = new System.Drawing.Size(173, 20);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "₱1000";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(109, 22);
-            this.label20.Name = "label20";
-            this.label20.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label20.Size = new System.Drawing.Size(173, 20);
-            this.label20.TabIndex = 37;
-            this.label20.Text = "₱1000";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(109, 22);
-            this.label21.Name = "label21";
-            this.label21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label21.Size = new System.Drawing.Size(173, 20);
-            this.label21.TabIndex = 38;
-            this.label21.Text = "₱1000";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label22
-            // 
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(109, 22);
-            this.label22.Name = "label22";
-            this.label22.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label22.Size = new System.Drawing.Size(173, 20);
-            this.label22.TabIndex = 39;
-            this.label22.Text = "₱1000";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label10.Location = new System.Drawing.Point(1, -3);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(169, 28);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Monthly expense";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Reports
             // 
@@ -636,17 +638,17 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -687,15 +689,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label expenseMoneyLbl;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label incomeMoneyLbl_total;
+        private System.Windows.Forms.Label incomeMoneyLbl_yearly;
+        private System.Windows.Forms.Label incomeMoneyLbl_monthly;
+        private System.Windows.Forms.Label incomeMoneyLbl_yesterday;
+        private System.Windows.Forms.Label incomeMoneyLbl_today;
+        private System.Windows.Forms.Label expenseMoneyLbl_total;
+        private System.Windows.Forms.Label expenseMoneyLbl_today;
+        private System.Windows.Forms.Label expenseMoneyLbl_yearly;
+        private System.Windows.Forms.Label expenseMoneyLbl_yesterday;
+        private System.Windows.Forms.Label expenseMoneyLbl_monthly;
     }
 }

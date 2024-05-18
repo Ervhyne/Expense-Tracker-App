@@ -60,6 +60,12 @@ namespace ExpenseTracker
             toolTip = new ToolTip();
         }
 
+        private void Reports_IncomeLabelsUpdated(object sender, EventArgs e)
+        {
+            // Call the LoadData() method when income labels are updated
+            LoadData();
+        }
+
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             PopulateUserComboBox();   
@@ -68,7 +74,17 @@ namespace ExpenseTracker
         private void refreshBtn_MouseHover(object sender, EventArgs e)
         {
             // Show the ToolTip with the message "refresh user combo-box"
-            toolTip.Show("Refresh User Combo-box", refreshBtn, 0, -20, 2000); // The message will appear above the button for 2 seconds
+            toolTip.Show("Refresh User Combo-box", refreshBtn, 0, -20, 1500); // The message will appear above the button for 2 seconds
+        }
+
+        private void incomeBtn_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.Show("Add Income", incomeBtn, 0, -20, 1500); // The message will appear above the button for 2 seconds
+        }
+
+        private void expenseBtn_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.Show("Add Expense", expenseBtn, 0, -20, 1500); // The message will appear above the button for 2 seconds
         }
 
         private void UserCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,7 +105,7 @@ namespace ExpenseTracker
             
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             if (userCbx.Items.Count > 0 && userCbx.SelectedItem != null)
             {
@@ -602,7 +618,7 @@ namespace ExpenseTracker
             LoadChart(GetFilteredTransactionData(userCbx.SelectedItem.ToString(), currentStartDate, currentEndDate)); // Load chart with filtered transaction data
         }
 
-       
+        
 
         void LoadChart(DataTable transactionData)
         {
