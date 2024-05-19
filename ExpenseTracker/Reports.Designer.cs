@@ -29,14 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.refreshBtn = new System.Windows.Forms.PictureBox();
             this.userCbx = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.incomeMoneyLbl_total = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,6 +56,7 @@
             this.incomeMoneyLbl_today = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.expenseMoneyLbl_total = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,14 +72,12 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.expenseMoneyLbl_monthly = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.refreshBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateRightBtn = new System.Windows.Forms.PictureBox();
             this.dateLeftBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -90,8 +92,6 @@
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).BeginInit();
             this.SuspendLayout();
@@ -101,10 +101,25 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.panel1.Controls.Add(this.refreshBtn);
-            this.panel1.Location = new System.Drawing.Point(596, 10);
+            this.panel1.Location = new System.Drawing.Point(596, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(30, 30);
             this.panel1.TabIndex = 24;
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshBtn.BackColor = System.Drawing.Color.Transparent;
+            this.refreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshBtn.Image = global::ExpenseTracker.Properties.Resources.loading_arrow;
+            this.refreshBtn.Location = new System.Drawing.Point(3, 3);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(24, 24);
+            this.refreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.refreshBtn.TabIndex = 8;
+            this.refreshBtn.TabStop = false;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            this.refreshBtn.MouseHover += new System.EventHandler(this.refreshBtn_MouseHover);
             // 
             // userCbx
             // 
@@ -117,7 +132,7 @@
             this.userCbx.ForeColor = System.Drawing.Color.Black;
             this.userCbx.FormattingEnabled = true;
             this.userCbx.ItemHeight = 22;
-            this.userCbx.Location = new System.Drawing.Point(662, 10);
+            this.userCbx.Location = new System.Drawing.Point(662, 13);
             this.userCbx.Name = "userCbx";
             this.userCbx.Size = new System.Drawing.Size(132, 30);
             this.userCbx.TabIndex = 23;
@@ -128,10 +143,23 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(632, 10);
+            this.panel4.Location = new System.Drawing.Point(632, 13);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(30, 30);
             this.panel4.TabIndex = 22;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // dateLbl
             // 
@@ -186,6 +214,8 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(134)))), ((int)(((byte)(216)))));
             this.panel5.Controls.Add(this.panel17);
             this.panel5.Controls.Add(this.panel11);
@@ -198,8 +228,18 @@
             this.panel5.Size = new System.Drawing.Size(314, 324);
             this.panel5.TabIndex = 28;
             // 
+            // panel17
+            // 
+            this.panel17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel17.BackColor = System.Drawing.Color.White;
+            this.panel17.Location = new System.Drawing.Point(9, 245);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(296, 5);
+            this.panel17.TabIndex = 30;
+            // 
             // panel11
             // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.panel11.Controls.Add(this.incomeMoneyLbl_total);
             this.panel11.Controls.Add(this.label7);
@@ -375,6 +415,8 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(151)))), ((int)(((byte)(95)))));
             this.panel6.Controls.Add(this.panel18);
             this.panel6.Controls.Add(this.panel12);
@@ -387,8 +429,18 @@
             this.panel6.Size = new System.Drawing.Size(314, 324);
             this.panel6.TabIndex = 29;
             // 
+            // panel18
+            // 
+            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel18.BackColor = System.Drawing.Color.White;
+            this.panel18.Location = new System.Drawing.Point(9, 245);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(296, 5);
+            this.panel18.TabIndex = 31;
+            // 
             // panel12
             // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.panel12.Controls.Add(this.expenseMoneyLbl_total);
             this.panel12.Controls.Add(this.label12);
@@ -562,50 +614,6 @@
             this.label10.Text = "Monthly expense";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.White;
-            this.panel17.Location = new System.Drawing.Point(9, 245);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(296, 5);
-            this.panel17.TabIndex = 30;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.White;
-            this.panel18.Location = new System.Drawing.Point(9, 245);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(296, 5);
-            this.panel18.TabIndex = 31;
-            // 
-            // refreshBtn
-            // 
-            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refreshBtn.BackColor = System.Drawing.Color.Transparent;
-            this.refreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.refreshBtn.Image = global::ExpenseTracker.Properties.Resources.loading_arrow;
-            this.refreshBtn.Location = new System.Drawing.Point(3, 3);
-            this.refreshBtn.Name = "refreshBtn";
-            this.refreshBtn.Size = new System.Drawing.Size(24, 24);
-            this.refreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.refreshBtn.TabIndex = 8;
-            this.refreshBtn.TabStop = false;
-            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
-            this.refreshBtn.MouseHover += new System.EventHandler(this.refreshBtn_MouseHover);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Image = global::ExpenseTracker.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // dateRightBtn
             // 
             this.dateRightBtn.BackColor = System.Drawing.Color.Transparent;
@@ -650,7 +658,9 @@
             this.Name = "Reports";
             this.Size = new System.Drawing.Size(810, 440);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).EndInit();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -665,8 +675,6 @@
             this.panel13.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.refreshBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRightBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLeftBtn)).EndInit();
             this.ResumeLayout(false);

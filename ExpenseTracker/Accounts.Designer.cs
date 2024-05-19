@@ -108,6 +108,9 @@
             this.userTbl_account.AllowUserToDeleteRows = false;
             this.userTbl_account.AllowUserToResizeColumns = false;
             this.userTbl_account.AllowUserToResizeRows = false;
+            this.userTbl_account.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userTbl_account.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.userTbl_account.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
             this.userTbl_account.BorderStyle = System.Windows.Forms.BorderStyle.None;

@@ -60,6 +60,9 @@ namespace ExpenseTracker
             this.categoryTbl_category.AllowUserToDeleteRows = false;
             this.categoryTbl_category.AllowUserToResizeColumns = false;
             this.categoryTbl_category.AllowUserToResizeRows = false;
+            this.categoryTbl_category.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.categoryTbl_category.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.categoryTbl_category.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
             this.categoryTbl_category.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -103,7 +106,6 @@ namespace ExpenseTracker
             // 
             // expenseBtn_category
             // 
-            this.expenseBtn_category.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.expenseBtn_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.expenseBtn_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.expenseBtn_category.FlatAppearance.BorderSize = 0;
@@ -120,7 +122,6 @@ namespace ExpenseTracker
             // 
             // incomeBtn_category
             // 
-            this.incomeBtn_category.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.incomeBtn_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.incomeBtn_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.incomeBtn_category.FlatAppearance.BorderSize = 0;

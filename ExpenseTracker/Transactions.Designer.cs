@@ -139,7 +139,6 @@
             // 
             // yearlyBtn
             // 
-            this.yearlyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.yearlyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.yearlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.yearlyBtn.FlatAppearance.BorderSize = 0;
@@ -156,7 +155,6 @@
             // 
             // monthlyBtn
             // 
-            this.monthlyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthlyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.monthlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.monthlyBtn.FlatAppearance.BorderSize = 0;
@@ -173,7 +171,6 @@
             // 
             // weeklyBtn
             // 
-            this.weeklyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.weeklyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.weeklyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.weeklyBtn.FlatAppearance.BorderSize = 0;
@@ -190,7 +187,6 @@
             // 
             // dailyBtn
             // 
-            this.dailyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dailyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.dailyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dailyBtn.FlatAppearance.BorderSize = 0;
@@ -207,7 +203,6 @@
             // 
             // incomeBtn
             // 
-            this.incomeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.incomeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.incomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.incomeBtn.FlatAppearance.BorderSize = 0;
@@ -224,7 +219,6 @@
             // 
             // expenseBtn
             // 
-            this.expenseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.expenseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.expenseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.expenseBtn.FlatAppearance.BorderSize = 0;
@@ -245,6 +239,9 @@
             this.transactionTbl.AllowUserToDeleteRows = false;
             this.transactionTbl.AllowUserToResizeColumns = false;
             this.transactionTbl.AllowUserToResizeRows = false;
+            this.transactionTbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.transactionTbl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
             this.transactionTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
