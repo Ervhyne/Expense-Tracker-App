@@ -256,6 +256,12 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionFormEdit.Designer.cs">
+      <DependentUpon>TransactionFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transactions.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </Compile>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionFormEdit.resx">
+      <DependentUpon>TransactionFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions.resx">
       <DependentUpon>Transactions.cs</DependentUpon>

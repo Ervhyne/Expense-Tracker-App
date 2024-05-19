@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.warningLbl = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.noteTxtArea = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.amountTxtField = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
-            this.noteTxtArea = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -110,6 +110,19 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(257, 70);
             this.panel9.TabIndex = 17;
+            // 
+            // noteTxtArea
+            // 
+            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
+            this.noteTxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.noteTxtArea.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteTxtArea.ForeColor = System.Drawing.SystemColors.Window;
+            this.noteTxtArea.Location = new System.Drawing.Point(8, 8);
+            this.noteTxtArea.Margin = new System.Windows.Forms.Padding(4);
+            this.noteTxtArea.Multiline = true;
+            this.noteTxtArea.Name = "noteTxtArea";
+            this.noteTxtArea.Size = new System.Drawing.Size(241, 54);
+            this.noteTxtArea.TabIndex = 1;
             // 
             // label7
             // 
@@ -403,19 +416,6 @@
             // warningTimer
             // 
             this.warningTimer.Interval = 3000;
-            // 
-            // noteTxtArea
-            // 
-            this.noteTxtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(37)))), ((int)(((byte)(47)))));
-            this.noteTxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.noteTxtArea.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteTxtArea.ForeColor = System.Drawing.SystemColors.Window;
-            this.noteTxtArea.Location = new System.Drawing.Point(8, 8);
-            this.noteTxtArea.Margin = new System.Windows.Forms.Padding(4);
-            this.noteTxtArea.Multiline = true;
-            this.noteTxtArea.Name = "noteTxtArea";
-            this.noteTxtArea.Size = new System.Drawing.Size(241, 54);
-            this.noteTxtArea.TabIndex = 1;
             // 
             // IncomeExpenseForm
             // 

@@ -58,6 +58,8 @@ namespace ExpenseTracker
 
             string selectedFilter = GetSelectedFilter(); // Call helper function to get filter
             LoadData(selectedFilter);
+            // Clear the selection in the DataGridView
+            categoryTbl_category.ClearSelection();
         }
 
         private CategoryFormEdit categoryFormEdit;
@@ -82,6 +84,8 @@ namespace ExpenseTracker
                     LoadData(selectedFilter);
                 }
             }
+            // Clear the selection in the DataGridView
+            categoryTbl_category.ClearSelection();
         }
 
         private string getCategoryName = "";
@@ -120,6 +124,8 @@ namespace ExpenseTracker
 
             string selectedFilter = GetSelectedFilter(); // Call helper function to get filter
             LoadData(selectedFilter);
+            // Clear the selection in the DataGridView
+            categoryTbl_category.ClearSelection();
         }
 
         private Button clickedButton; // Store reference to clicked button
@@ -127,12 +133,16 @@ namespace ExpenseTracker
         {
             ChangeButtonColor(sender);
             LoadData("Expense"); // Load data for expenses
+            // Clear the selection in the DataGridView
+            categoryTbl_category.ClearSelection();
         }
 
         private void incomeBtn_category_Click(object sender, EventArgs e)
         {
             ChangeButtonColor(sender);
             LoadData("Income"); // Load data for income
+            // Clear the selection in the DataGridView
+            categoryTbl_category.ClearSelection();
         }
 
         // Helper function to handle color change and reset

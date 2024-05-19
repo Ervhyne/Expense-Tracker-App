@@ -161,6 +161,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Accounts";
             this.Size = new System.Drawing.Size(810, 440);
+            this.Load += new System.EventHandler(this.Accounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userTbl_account)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

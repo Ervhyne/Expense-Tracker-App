@@ -15,6 +15,7 @@ namespace ExpenseTracker
     {
         string connectionString = "server=127.0.0.1; user=root; database=expensetrackingdb; password=";
         private string categoryName;
+        private string transactionType;
 
         // Constructor to receive selected category name
         public CategoryFormEdit(string categoryName)
@@ -22,34 +23,41 @@ namespace ExpenseTracker
             InitializeComponent();
             this.categoryName = categoryName;
 
-            // Populate text box and combo box with selected category data
-            PopulateFormData();
-        }
-        private void PopulateFormData()
-        {
-            // Fetch additional data for the selected category from the database if needed
-            // For example, fetch transaction type based on the category name
-            string fetchedTransactionType = ""; // Placeholder for fetched transaction type
+            // Fetch transaction type based on the selected category name
+            transactionType = GetTransactionType(categoryName);
 
             // Populate text box with category name
             nameTxtBox.Text = categoryName;
 
             // Populate combo box with transaction type data
-            // Assuming fetchedTransactionType contains the transaction type
-            // You can fetch it from the database or set it manually
-            transactionTypeCbx.Items.Clear(); // Clear existing items
-            transactionTypeCbx.Items.Add("Expense"); // Add expense option
-            transactionTypeCbx.Items.Add("Income");  // Add income option
+            PopulateTransactionTypeCbx(transactionType);
+        }
+
+        private string GetTransactionType(string categoryName)
+        {
+            // Use CategoryData to fetch the transaction type for the selected category name
+            ExpenseData expenseData = new ExpenseData();
+            return expenseData.GetTransactionType(categoryName);
+        }
+
+        private void PopulateTransactionTypeCbx(string selectedTransactionType)
+        {
+            // Clear existing items
+            transactionTypeCbx.Items.Clear();
+
+            // Add Expense and Income options
+            transactionTypeCbx.Items.Add("Expense");
+            transactionTypeCbx.Items.Add("Income");
 
             // Set the selected transaction type
-            if (!string.IsNullOrEmpty(fetchedTransactionType))
+            if (!string.IsNullOrEmpty(selectedTransactionType))
             {
-                transactionTypeCbx.SelectedItem = fetchedTransactionType;
+                transactionTypeCbx.SelectedItem = selectedTransactionType;
             }
             else
             {
-                // Set a default value if fetchedTransactionType is empty
-                transactionTypeCbx.SelectedItem = "Expense"; // For example, default to "Expense"
+                // Set default to Expense if not found
+                transactionTypeCbx.SelectedItem = "Expense";
             }
         }
 

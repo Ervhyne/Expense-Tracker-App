@@ -24,11 +24,19 @@ namespace ExpenseTracker
             LoadData(); // Call LoadData on initialization
         }
 
+        private void Accounts_Load(object sender, EventArgs e)
+        {
+            userTbl_account.ClearSelection();
+        }
+
         private void LoadData()
         {
             AccountData accountData = new AccountData(); // Create an instance of AccountData
             DataTable accountTable = accountData.GetAccountData(); // Retrieve account data
             userTbl_account.DataSource = accountTable; // Set the DataGridView's DataSource
+
+            // Clear the selection in the DataGridView
+            userTbl_account.ClearSelection();
         }
 
         private AccountsForm accountsForm;
@@ -42,9 +50,12 @@ namespace ExpenseTracker
 
             accountsForm.StartPosition = FormStartPosition.CenterScreen; // Center the modal form
             accountsForm.ShowDialog(); // Show the form as a modal dialog
+            // Clear the selection in the DataGridView
+            userTbl_account.ClearSelection();
             LoadData();
             // Fire the event after adding an account
             OnAccountsUpdated();
+           
         }
 
         private void AccountsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -108,9 +119,9 @@ namespace ExpenseTracker
             LoadData();
             // Fire the event after deleting an account
             OnAccountsUpdated();
+            // Clear the selection in the DataGridView
+            userTbl_account.ClearSelection();
         }
-
-
 
         private void OnAccountsUpdated()
         {
@@ -138,6 +149,8 @@ namespace ExpenseTracker
                     LoadData();
                 }
             }
+            // Clear the selection in the DataGridView
+            userTbl_account.ClearSelection();
         }
     }
 }
